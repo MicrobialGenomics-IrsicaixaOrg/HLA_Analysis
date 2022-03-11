@@ -5,6 +5,10 @@ navbar:
   left:
   - text: Home
     href: index.html
+  - text: All HLA Mutations
+    href: 050_AllHLAMutations.html
+  - text: Adapted HLA Mutations
+    href: 051_AdaptedHLAMutations.html
   - text: About
     href: about.html
   - text: License

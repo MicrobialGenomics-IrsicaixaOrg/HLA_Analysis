@@ -1,0 +1,176 @@
+---
+title: "Adapted and non-adapted HLA Mutations"
+author: "Marc Noguera"
+date: "3/3/2022"
+output: html_document
+---
+
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(rootdir = here::here())
+```
+
+
+# HLA-Specific / Adapted Only
+
+## Import Data
+
+Need to import data from different sources:
+
+* HLA-Specific escape mutation list. This excel sheet contains information on mutations that are specific to each of HLA (2-digit resolution)
+* HLA from patients: Each patient has a specifc HLA setup composed of HLA-A, HLA-B and HLA-C, each of them consisting of two alleles.
+* Patient-Specific Variant list at the amino acid level, as obtained from Illumina Sequencing / PASeq.
+
+### HLA-Specific mutations
+
+This excel sheet contains information on mutations that are specific to each of HLA (2-digit resolution). Containt the following relevant fields:
+
+* Protein: Short code for HIV protein.
+* HLA: 2-digit HLA of that specific mutation.
+* Codon / position_in_protein: Codon-based coordinate of that mutation within Protein.
+* AAHXB2/AminoAcid: Reference and variant amino acid.
+* EPITOPE_SEQUENCE: Is the mutation within a epitope sequence? (YES/NO)
+* IN.OUT.vaccine: Is the mutation within the vaccines immunogen?
+
+We di several things with this data:
+
+* Generate a Mutation field in the shape of "GAG:T454R"
+* Specify HXB2 start and end coordinates, separately, this may be handy for cooridnate based analysis.
+* Generate a mutation_string new field, that contains all mutations for each HLA. This is not elegant but may be practical.
+* Filter for those mutations with the "ADAPTED" flage to be used downstream
+
+```{r import HLA-specific mutations}
+require(dplyr)
+HLA_mutations<-gdata::read.xls("data/HLA footprints for AELIX002 analyses without B15 imprints 3-2-2022.xls",sheet = 2)
+HLA_mutations<-HLA_mutations %>% 
+  dplyr::mutate(mutation=paste0(AAHXB2,position_in_protein,AminoAcid)) %>% 
+  dplyr::filter(DIRECTION=="ADAPTED") %>% 
+  dplyr::mutate(HXB2_start=strsplit(x = HXB2_location,split = "..",fixed=T)[[1]][1]) %>% 
+  dplyr::mutate(HXB2_end=strsplit(x = HXB2_location,split = "..",fixed=T)[[1]][2]) %>% 
+  dplyr::mutate(Mutation=paste0(Protein,":",AAHXB2,position_in_protein,AminoAcid)) %>% 
+  dplyr::group_by(HLA) %>% 
+  dplyr::mutate(mutation_string=paste0(Mutation,collapse=";")) 
+
+head(HLA_mutations)
+```
+
+
+
+```{r collapse HLA_mutations,eval=F}
+HLA_mutation_collapsed<-HLA_mutations %>% 
+  select(HLA,mutation_string) %>% 
+  unique()
+
+head(HLA_mutations)
+```
+
+### Patients HLA
+
+We have an excel sheet that has been manually edited, containing 4D and 2D HLA information for each patient(SAmpleID). We basically add A/B/C to each allele to be able to merge downstream
+
+```{r patient HLAs}
+
+patient_hla<-xlsx::read.xlsx("data/Mostres_Aelix_PreART_HLA_20200930_noID. with 2 digit HLA reduction 3-2-2022_vMNJ_1.0.xlsx",sheetIndex = 1) %>% 
+  dplyr::mutate(HLA.A1_2D=paste0("A",HLA.A1_2D)) %>%
+  dplyr::mutate(HLA.A2_2D=paste0("A",HLA.A2_2D)) %>%
+  dplyr::mutate(HLA.B1_2D=paste0("C",HLA.B1_2D)) %>%
+  dplyr::mutate(HLA.B2_2D=paste0("C",HLA.B2_2D)) %>%
+  dplyr::mutate(HLA.C1_2D=paste0("C",HLA.C1_2D)) %>%
+  dplyr::mutate(HLA.C2_2D=paste0("C",HLA.C2_2D))
+  
+head(patient_hla)
+```
+
+### Patients Variants
+
+We obtaine AA variants from PASeq and do several things:
+
+* Keep those above 20% of the viral population.
+* Remove Deletion
+* All protein names to uppercase.
+* Add protein names to match the format above("GAG:T454R")
+* Change sample names to match format above.
+
+
+```{r import patient variants}
+require(dplyr)
+temp = list.files(path = "data/VariantData_PASeq/",pattern="*.csv",full.names = T)
+variant_df<-lapply(temp, read.csv) %>% 
+  data.table::rbindlist() %>% 
+  dplyr::filter(FREQ>=20) %>%
+  tidyr::separate(FILE,into = c("SampleID","Garbage"),sep = "_S") %>% 
+  dplyr::select(-Garbage) %>% 
+  dplyr::mutate(PROTEIN=toupper(PROTEIN)) %>% 
+  dplyr::mutate(Mutation=paste0(PROTEIN,":",MUTATION)) %>% 
+  dplyr::filter(! grepl("Del",MUTATION,ignore.case = T)) %>% 
+  dplyr::mutate(SampleID=stringr::str_replace(SampleID,"-","_"))
+
+```
+
+
+```{r import patient metadata}
+metadata_df<-xlsx::read.xlsx("../Pre-Treatment/Aelix-002_VG/data/raw/Dades_Aelix_x Seq_20210714.xlsx",sheetIndex = 1) %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(SampleID=paste0("Alx_",strsplit(ID1,"\ ",fixed=T)[[1]][2]))
+```
+## Data Merging
+
+### HLA-specifc mutations within each patient. 2D resolution and both adapted/nonadapted
+
+For each patient we select the mutations that are specific to his/her HLA and create a patient-specific mutation string that contains all mutations.
+
+```{r Merge Data}
+require(dplyr)
+
+for (patient in (patient_hla$SampleID)){
+  aux_patient_hla_2D<-(patient_hla %>% 
+    filter(SampleID==patient) %>% 
+    select(HLA.A1_2D,HLA.A2_2D,HLA.B1_2D,HLA.B2_2D,HLA.C1_2D,HLA.C2_2D) )[1,]
+  patient_hla[patient_hla$SampleID==patient,"mutation_string"]<-(HLA_mutations %>% ### ADAPTED mutations filter to be located here
+    select(-mutation_string) %>% 
+    dplyr::filter(HLA %in% aux_patient_hla_2D[1,]) %>% 
+    dplyr::group_by(.) %>% 
+    dplyr::mutate(mutation_string=paste0(Mutation,collapse=";")) %>% 
+    dplyr::mutate(SampleID=patient) %>% 
+    dplyr::select(SampleID,mutation_string) %>% 
+    unique())$mutation_string
+}
+
+
+```
+
+
+For each patient, we take all AA variants and take each one of them as being present in the patients mutations_string, thus indicating whether each mutation is specific of the patients HLA. Then we sum up the number of mutations in each patients that are found in their HLA and integrate patient metadata regarding Placebo/Vaccine group to nicely plot and run test the stats (Wilcoxon Rank sum)
+
+There are significant differences between groups regarding the number of HLA-specific mutations when considering ADAPTED mutations only.
+
+```{r calculate numbe of variants in patients HLA Mutations List}
+require(ggplot2)
+patient_hla$SampleID
+unique(variant_df$SampleID)
+
+variant_df %>% 
+  left_join(patient_hla,by="SampleID") %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %>% 
+  group_by(SampleID) %>% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %>% 
+  left_join(metadata_df) %>% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %>% 
+  ggplot(.,aes(x=TreatmentGroup,y=n_HLA_mutations,color=TreatmentGroup))+
+    geom_boxplot()+
+    ggpubr::stat_compare_means(method = "wilcox.test",label.x = 1.3,label.y = 15)+
+    theme_classic()+
+    #geom_jitter(shape=16, position=position_jitter(0.2))+
+    scale_color_manual(values=c("#E69F00", "#56B4E9"))+
+    theme(
+      plot.title = element_text(color="black", size=14, face="bold.italic"),
+      axis.title.x = element_text(color="darkgrey", size=12, face="bold"),
+      axis.title.y = element_text(color="darkgrey", size=12, face="bold")
+    )+
+    geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8)
+  
+
+
+```
