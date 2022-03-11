@@ -372,7 +372,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -381,7 +381,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -393,7 +393,7 @@ div.tocify {
 <strong>Last updated:</strong> 2022-03-11
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>HLA_Analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -409,12 +409,12 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -481,16 +481,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreef600d53c3a06f37e1be24473f9b1dba49472790ftargetblankf600d53a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mnoguera/HLA_Analysis/tree/f600d53c3a06f37e1be24473f9b1dba49472790f" target="_blank">f600d53</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistree521de8e32107c8be83412fb3bdf481364095a3b1targetblank521de8ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mnoguera/HLA_Analysis/tree/521de8e32107c8be83412fb3bdf481364095a3b1" target="_blank">521de8e</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreef600d53c3a06f37e1be24473f9b1dba49472790ftargetblankf600d53a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistree521de8e32107c8be83412fb3bdf481364095a3b1targetblank521de8ea" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mnoguera/HLA_Analysis/tree/f600d53c3a06f37e1be24473f9b1dba49472790f" target="_blank">f600d53</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mnoguera/HLA_Analysis/tree/521de8e32107c8be83412fb3bdf481364095a3b1" target="_blank">521de8e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -508,9 +508,8 @@ Ignored files:
     Ignored:    data/Optimal list 2022 with coordinates for ALX 002 analyses 3-2-2022 .xls
     Ignored:    data/VariantData_PASeq/
 
-Unstaged changes:
-    Modified:   analysis/050_AllHLAMutations.Rmd
-    Modified:   analysis/051_AdaptedHLAMutations.Rmd
+Untracked files:
+    Untracked:  analysis/060_EpitopeSequences.Rmd
 
 </code></pre>
 <p>
@@ -549,6 +548,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mnoguera/HLA_Analysis/blob/521de8e32107c8be83412fb3bdf481364095a3b1/analysis/050_AllHLAMutations.Rmd" target="_blank">521de8e</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mnoguera/HLA_Analysis/blob/2102c289b5620736495be345342b890ee3d989a6/analysis/050_AllHLAMutations.Rmd" target="_blank">2102c28</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+remove tables
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/2102c289b5620736495be345342b890ee3d989a6/docs/050_AllHLAMutations.html" target="_blank">2102c28</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+remove tables
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -765,7 +815,7 @@ HLA_mutations&lt;-HLA_mutations %&gt;%
 </div>
 <div id="patients-variants" class="section level3">
 <h3>Patients Variants</h3>
-<p>We obtaine AA variants from PASeq and do several things:</p>
+<p>We obtain AA variants from PASeq analysis using self-consensus and codon-level variant calling only on pol, gag, vif and nef. We do several things:</p>
 <ul>
 <li>Keep those above 20% of the viral population.</li>
 <li>Remove Deletion</li>
@@ -830,6 +880,7 @@ variant_df %&gt;%
     theme_classic()+
     #geom_jitter(shape=16, position=position_jitter(0.2))+
     scale_color_manual(values=c(&quot;#E69F00&quot;, &quot;#56B4E9&quot;))+
+    ggtitle(&quot;(gag,pol,nef,vif) HLA-specific mutations&quot;,subtitle = &quot;Adapted and non-Adapted Mutations&quot;)+
     theme(
       plot.title = element_text(color=&quot;black&quot;, size=14, face=&quot;bold.italic&quot;),
       axis.title.x = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;),
