@@ -7,4 +7,4 @@ editor_options:
   chunk_output_type: console
 ---
 
-Describe your project.
+This analysis is performed over a combination of HIV amino acid data, HLA typing data and HLA-specific mutations catalog to resolve whether vaccinated patients harbour more HLA-specific mutations than placebo group individuals before being vaccinated.
