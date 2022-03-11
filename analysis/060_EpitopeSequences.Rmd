@@ -1,0 +1,51 @@
+---
+title: "Epitope Sequences"
+author: "Marc Noguera"
+date: "3/11/2022"
+output: html_document
+---
+
+```{r setup,message=F,warning=F}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(rootdir = here::here())
+```
+
+# HLA Specific / All Mutations
+
+## Import Data
+Need to import data from different sources:
+
+* HLA-Specific escape mutation list. This excel sheet contains information on mutations that are specific to each of HLA (2-digit resolution)
+* HLA from patients: Each patient has a specifc HLA setup composed of HLA-A, HLA-B and HLA-C, each of them consisting of two alleles.
+* Patient-Specific Variant list at the amino acid level, as obtained from Illumina Sequencing / PASeq.
+
+### HLA-Specific mutations
+
+This excel sheet contains information on mutations that are specific to each of HLA (2-digit resolution). Containt the following relevant fields:
+
+* Protein: Short code for HIV protein.
+* HLA: 2-digit HLA of that specific mutation.
+* Codon / position_in_protein: Codon-based coordinate of that mutation within Protein.
+* AAHXB2/AminoAcid: Reference and variant amino acid.
+* EPITOPE_SEQUENCE: Is the mutation within a epitope sequence? (YES/NO)
+* IN.OUT.vaccine: Is the mutation within the vaccines immunogen?
+
+We di several things with this data:
+
+* Generate a Mutation field in the shape of "GAG:T454R"
+* Specify HXB2 start and end coordinates, separately, this may be handy for cooridnate based analysis.
+* Generate a mutation_string new field, that contains all mutations for each HLA. This is not elegant but may be practical.
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
