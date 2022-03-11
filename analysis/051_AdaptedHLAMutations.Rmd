@@ -196,7 +196,7 @@ variant_df %>%
   dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %>% 
   ggplot(.,aes(x=ATI_duration,y=n_HLA_mutations,color=ATI_duration))+
     geom_boxplot()+
-    ggpubr::stat_compare_means(method = "wilcox.test",label.x = 1.3,label.y = 25)+
+    ggpubr::stat_compare_means(method = "wilcox.test",label.x = 1.3,label.y = 15)+
     theme_classic()+
     #geom_jitter(shape=16, position=position_jitter(0.2))+
     scale_color_manual(values=c("darkred", "steelblue"))+
@@ -234,7 +234,7 @@ variant_df %>%
   dplyr::mutate(good_HLA=ifelse(SampleID %in% goodHLA_samples,"Good","Bad")) %>% 
   ggplot(.,aes(x=good_HLA,y=n_HLA_mutations,color=good_HLA))+
     geom_boxplot()+
-    ggpubr::stat_compare_means(method = "wilcox.test",label.x = 1.3,label.y = 25)+
+    ggpubr::stat_compare_means(method = "wilcox.test",label.x = 1.3,label.y = 15)+
     theme_classic()+
     #geom_jitter(shape=16, position=position_jitter(0.2))+
     scale_color_manual(values=c("darkgreen", "orange"))+
