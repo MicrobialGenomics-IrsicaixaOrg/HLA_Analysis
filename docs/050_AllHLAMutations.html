@@ -473,16 +473,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreeb76c6f9ec944576cefba3c1eb573b59520a27cbatargetblankb76c6f9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mnoguera/HLA_Analysis/tree/b76c6f9ec944576cefba3c1eb573b59520a27cba" target="_blank">b76c6f9</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreef9d9128976ad5a94196a0f97a924853aeee37802targetblankf9d9128a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mnoguera/HLA_Analysis/tree/f9d9128976ad5a94196a0f97a924853aeee37802" target="_blank">f9d9128</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreeb76c6f9ec944576cefba3c1eb573b59520a27cbatargetblankb76c6f9a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreef9d9128976ad5a94196a0f97a924853aeee37802targetblankf9d9128a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mnoguera/HLA_Analysis/tree/b76c6f9ec944576cefba3c1eb573b59520a27cba" target="_blank">b76c6f9</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mnoguera/HLA_Analysis/tree/f9d9128976ad5a94196a0f97a924853aeee37802" target="_blank">f9d9128</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -537,6 +537,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mnoguera/HLA_Analysis/blob/f9d9128976ad5a94196a0f97a924853aeee37802/analysis/050_AllHLAMutations.Rmd" target="_blank">f9d9128</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/f9d9128976ad5a94196a0f97a924853aeee37802/docs/050_AllHLAMutations.html" target="_blank">f9d9128</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -646,26 +680,202 @@ HLA_mutations&lt;-HLA_mutations %&gt;%
   dplyr::group_by(HLA) %&gt;% 
   dplyr::mutate(mutation_string=paste0(Mutation,collapse=&quot;;&quot;)) 
 
-head(HLA_mutations)</code></pre>
-<pre><code># A tibble: 6 × 21
-# Groups:   HLA [1]
-  Figure Protein HLA   Codon protein      position_in_protein AAHXB2 AminoAcid
-   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;int&gt; &lt;chr&gt;                      &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;    
-1      1 GAG     A01      76 Gag_p17                       76 R      K        
-2      1 GAG     A01      76 Gag_p17                       76 R      R        
-3      1 GAG     A01      79 Gag_p17                       79 Y      F        
-4      1 GAG     A01      79 Gag_p17                       79 Y      Y        
-5      1 GAG     A01     147 Gag_p24                       15 I      M        
-6      1 GAG     A01     439 Gag_p2p7p1p6                  76 P      P        
-# … with 13 more variables: EPITOPE_SEQUENCE &lt;chr&gt;, IN.OUT.vaccine &lt;chr&gt;,
-#   HXB2_location &lt;chr&gt;, DIRECTION &lt;chr&gt;, p.value &lt;chr&gt;, q.value &lt;dbl&gt;,
-#   Direct.or.Indirect &lt;chr&gt;, Paper &lt;chr&gt;, mutation &lt;chr&gt;, HXB2_start &lt;chr&gt;,
-#   HXB2_end &lt;chr&gt;, Mutation &lt;chr&gt;, mutation_string &lt;chr&gt;</code></pre>
+head(HLA_mutations) %&gt;% knitr::kable()</code></pre>
+<table style="width:100%;">
+<colgroup>
+<col width="1%" />
+<col width="1%" />
+<col width="0%" />
+<col width="1%" />
+<col width="3%" />
+<col width="4%" />
+<col width="1%" />
+<col width="2%" />
+<col width="4%" />
+<col width="3%" />
+<col width="3%" />
+<col width="2%" />
+<col width="2%" />
+<col width="2%" />
+<col width="4%" />
+<col width="11%" />
+<col width="2%" />
+<col width="2%" />
+<col width="2%" />
+<col width="2%" />
+<col width="36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">Figure</th>
+<th align="left">Protein</th>
+<th align="left">HLA</th>
+<th align="right">Codon</th>
+<th align="left">protein</th>
+<th align="right">position_in_protein</th>
+<th align="left">AAHXB2</th>
+<th align="left">AminoAcid</th>
+<th align="left">EPITOPE_SEQUENCE</th>
+<th align="left">IN.OUT.vaccine</th>
+<th align="left">HXB2_location</th>
+<th align="left">DIRECTION</th>
+<th align="left">p.value</th>
+<th align="right">q.value</th>
+<th align="left">Direct.or.Indirect</th>
+<th align="left">Paper</th>
+<th align="left">mutation</th>
+<th align="left">HXB2_start</th>
+<th align="left">HXB2_end</th>
+<th align="left">Mutation</th>
+<th align="left">mutation_string</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">GAG</td>
+<td align="left">A01</td>
+<td align="right">76</td>
+<td align="left">Gag_p17</td>
+<td align="right">76</td>
+<td align="left">R</td>
+<td align="left">K</td>
+<td align="left">YES</td>
+<td align="left">IN</td>
+<td align="left">1015..1017</td>
+<td align="left">ADAPTED</td>
+<td align="left">1.12804e-05</td>
+<td align="right">0.0030115</td>
+<td align="left">Direct</td>
+<td align="left">Brumme et al Plos One 2009, Carlson JVI 2012</td>
+<td align="left">R76K</td>
+<td align="left">1015</td>
+<td align="left">1017</td>
+<td align="left">GAG:R76K</td>
+<td align="left">GAG:R76K;GAG:R76R;GAG:Y79F;GAG:Y79Y;GAG:I15M;GAG:P76P;GAG:P76S;GAG:T107K;RT:L288A;INT:A91A;INT:S119G;NEF:E18A;NEF:A23V;NEF:K94K;NEF:E182R;NEF:R188T</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">GAG</td>
+<td align="left">A01</td>
+<td align="right">76</td>
+<td align="left">Gag_p17</td>
+<td align="right">76</td>
+<td align="left">R</td>
+<td align="left">R</td>
+<td align="left">YES</td>
+<td align="left">IN</td>
+<td align="left">1015..1017</td>
+<td align="left">NONADAPTED</td>
+<td align="left">0.000108395</td>
+<td align="right">0.0184410</td>
+<td align="left">Indirect</td>
+<td align="left">Brumme et al Plos One 2009, Carlson JVI 2012</td>
+<td align="left">R76R</td>
+<td align="left">1015</td>
+<td align="left">1017</td>
+<td align="left">GAG:R76R</td>
+<td align="left">GAG:R76K;GAG:R76R;GAG:Y79F;GAG:Y79Y;GAG:I15M;GAG:P76P;GAG:P76S;GAG:T107K;RT:L288A;INT:A91A;INT:S119G;NEF:E18A;NEF:A23V;NEF:K94K;NEF:E182R;NEF:R188T</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">GAG</td>
+<td align="left">A01</td>
+<td align="right">79</td>
+<td align="left">Gag_p17</td>
+<td align="right">79</td>
+<td align="left">Y</td>
+<td align="left">F</td>
+<td align="left">YES</td>
+<td align="left">IN</td>
+<td align="left">1024..1026</td>
+<td align="left">ADAPTED</td>
+<td align="left">2.51251e-06</td>
+<td align="right">0.0007258</td>
+<td align="left">Direct</td>
+<td align="left">Brumme et al Plos One 2009, Carlson JVI 2012</td>
+<td align="left">Y79F</td>
+<td align="left">1015</td>
+<td align="left">1017</td>
+<td align="left">GAG:Y79F</td>
+<td align="left">GAG:R76K;GAG:R76R;GAG:Y79F;GAG:Y79Y;GAG:I15M;GAG:P76P;GAG:P76S;GAG:T107K;RT:L288A;INT:A91A;INT:S119G;NEF:E18A;NEF:A23V;NEF:K94K;NEF:E182R;NEF:R188T</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">GAG</td>
+<td align="left">A01</td>
+<td align="right">79</td>
+<td align="left">Gag_p17</td>
+<td align="right">79</td>
+<td align="left">Y</td>
+<td align="left">Y</td>
+<td align="left">YES</td>
+<td align="left">IN</td>
+<td align="left">1024..1026</td>
+<td align="left">NONADAPTED</td>
+<td align="left">5.9578e-07</td>
+<td align="right">0.0002052</td>
+<td align="left">Direct</td>
+<td align="left">Brumme et al Plos One 2009, Carlson JVI 2012</td>
+<td align="left">Y79Y</td>
+<td align="left">1015</td>
+<td align="left">1017</td>
+<td align="left">GAG:Y79Y</td>
+<td align="left">GAG:R76K;GAG:R76R;GAG:Y79F;GAG:Y79Y;GAG:I15M;GAG:P76P;GAG:P76S;GAG:T107K;RT:L288A;INT:A91A;INT:S119G;NEF:E18A;NEF:A23V;NEF:K94K;NEF:E182R;NEF:R188T</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">GAG</td>
+<td align="left">A01</td>
+<td align="right">147</td>
+<td align="left">Gag_p24</td>
+<td align="right">15</td>
+<td align="left">I</td>
+<td align="left">M</td>
+<td align="left">YES</td>
+<td align="left">IN</td>
+<td align="left">1228..1230</td>
+<td align="left">ADAPTED</td>
+<td align="left"></td>
+<td align="right">NA</td>
+<td align="left"></td>
+<td align="left">Carlson JVI 2012</td>
+<td align="left">I15M</td>
+<td align="left">1015</td>
+<td align="left">1017</td>
+<td align="left">GAG:I15M</td>
+<td align="left">GAG:R76K;GAG:R76R;GAG:Y79F;GAG:Y79Y;GAG:I15M;GAG:P76P;GAG:P76S;GAG:T107K;RT:L288A;INT:A91A;INT:S119G;NEF:E18A;NEF:A23V;NEF:K94K;NEF:E182R;NEF:R188T</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">GAG</td>
+<td align="left">A01</td>
+<td align="right">439</td>
+<td align="left">Gag_p2p7p1p6</td>
+<td align="right">76</td>
+<td align="left">P</td>
+<td align="left">P</td>
+<td align="left">YES</td>
+<td align="left">OUT</td>
+<td align="left">2104..2106</td>
+<td align="left">ADAPTED</td>
+<td align="left">0.000331625</td>
+<td align="right">0.0458105</td>
+<td align="left">Indirect</td>
+<td align="left">Brumme et al Plos One 2009</td>
+<td align="left">P76P</td>
+<td align="left">1015</td>
+<td align="left">1017</td>
+<td align="left">GAG:P76P</td>
+<td align="left">GAG:R76K;GAG:R76R;GAG:Y79F;GAG:Y79Y;GAG:I15M;GAG:P76P;GAG:P76S;GAG:T107K;RT:L288A;INT:A91A;INT:S119G;NEF:E18A;NEF:A23V;NEF:K94K;NEF:E182R;NEF:R188T</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code>HLA_mutation_collapsed&lt;-HLA_mutations %&gt;% 
   select(HLA,mutation_string) %&gt;% 
   unique()
 
-head(HLA_mutations)</code></pre>
+# head(HLA_mutations)</code></pre>
 </div>
 <div id="patients-hla" class="section level3">
 <h3>Patients HLA</h3>
@@ -678,28 +888,7 @@ head(HLA_mutations)</code></pre>
   dplyr::mutate(HLA.C1_2D=paste0(&quot;C&quot;,HLA.C1_2D)) %&gt;%
   dplyr::mutate(HLA.C2_2D=paste0(&quot;C&quot;,HLA.C2_2D))
   
-head(patient_hla)</code></pre>
-<pre><code>  SampleID     Nordre       Data HLA.A1_4D HLA.A2_4D HLA.B1_4D HLA.B2_4D
-1   Alx_12 2015020250 2019-11-06     11_01     26_01     27_05     44_03
-2   Alx_20 2015100223 2019-11-06     02_01     31_01     15_01     40_01
-3   Alx_19 2015100020 2019-11-06     02_01     23_01     44_03     51_01
-4    Alx_3 2013100362 2019-11-06     24_02     24_02     35_01     40_04
-5    Alx_9 2014100276 2019-11-06     01_01     24_02     35_02     35_03
-6    Alx_8 2014050322 2019-11-06     29_02     29_02     18_01     44_02
-  HLA.C1_4D HLA.C2_4D HLA.A1_2D HLA.A2_2D HLA.B1_2D HLA.B2_2D HLA.C1_2D
-1     01_02     01_02       A11       A26       C27       C44       C01
-2     03_04     03_04       A02       A31       C15       C40       C03
-3     02_02     04_01       A02       A23       C44       C51       C02
-4     03_04     04_01       A24       A24       C35       C40       C03
-5     04_01     04_01       A01       A24       C35       C35       C04
-6     05_01     05_01       A29       A29       C18       C44       C05
-  HLA.C2_2D
-1       C01
-2       C03
-3       C04
-4       C04
-5       C04
-6       C05</code></pre>
+# head(patient_hla)</code></pre>
 </div>
 <div id="patients-variants" class="section level3">
 <h3>Patients Variants</h3>
@@ -751,21 +940,10 @@ for (patient in (patient_hla$SampleID)){
 <p>Apparently there are no significant difference between groups regarding the number of HLA-specific mutations, including both ADAPTED and non-ADAPTED.</p>
 <pre class="r"><code>require(ggplot2)</code></pre>
 <pre><code>Loading required package: ggplot2</code></pre>
-<pre class="r"><code>patient_hla$SampleID</code></pre>
-<pre><code> [1] &quot;Alx_12&quot; &quot;Alx_20&quot; &quot;Alx_19&quot; &quot;Alx_3&quot;  &quot;Alx_9&quot;  &quot;Alx_8&quot;  &quot;Alx_30&quot; &quot;Alx_27&quot;
- [9] &quot;Alx_38&quot; &quot;Alx_23&quot; &quot;Alx_2&quot;  &quot;Alx_17&quot; &quot;Alx_28&quot; &quot;Alx_39&quot; &quot;Alx_18&quot; &quot;Alx_10&quot;
-[17] &quot;Alx_15&quot; &quot;Alx_11&quot; &quot;Alx_21&quot; &quot;Alx_40&quot; &quot;Alx_24&quot; &quot;Alx_26&quot; &quot;Alx_41&quot; &quot;Alx_4&quot; 
-[25] &quot;Alx_33&quot; &quot;Alx_31&quot; &quot;Alx_7&quot;  &quot;Alx_14&quot; &quot;Alx_16&quot; &quot;Alx_6&quot;  &quot;Alx_5&quot;  &quot;Alx_34&quot;
-[33] &quot;Alx_22&quot; &quot;Alx_1&quot;  &quot;Alx_36&quot; &quot;Alx_25&quot; &quot;Alx_35&quot; &quot;Alx_32&quot; &quot;Alx_37&quot; &quot;Alx_13&quot;
-[41] &quot;Alx_29&quot;</code></pre>
-<pre class="r"><code>unique(variant_df$SampleID)</code></pre>
-<pre><code> [1] &quot;Alx_1&quot;  &quot;Alx_10&quot; &quot;Alx_11&quot; &quot;Alx_12&quot; &quot;Alx_13&quot; &quot;Alx_14&quot; &quot;Alx_15&quot; &quot;Alx_16&quot;
- [9] &quot;Alx_17&quot; &quot;Alx_18&quot; &quot;Alx_19&quot; &quot;Alx_2&quot;  &quot;Alx_20&quot; &quot;Alx_21&quot; &quot;Alx_22&quot; &quot;Alx_23&quot;
-[17] &quot;Alx_24&quot; &quot;Alx_25&quot; &quot;Alx_26&quot; &quot;Alx_27&quot; &quot;Alx_28&quot; &quot;Alx_29&quot; &quot;Alx_3&quot;  &quot;Alx_30&quot;
-[25] &quot;Alx_31&quot; &quot;Alx_32&quot; &quot;Alx_33&quot; &quot;Alx_34&quot; &quot;Alx_35&quot; &quot;Alx_36&quot; &quot;Alx_37&quot; &quot;Alx_38&quot;
-[33] &quot;Alx_39&quot; &quot;Alx_4&quot;  &quot;Alx_40&quot; &quot;Alx_41&quot; &quot;Alx_5&quot;  &quot;Alx_6&quot;  &quot;Alx_7&quot;  &quot;Alx_8&quot; 
-[41] &quot;Alx_9&quot; </code></pre>
-<pre class="r"><code>variant_df %&gt;% 
+<pre class="r"><code># patient_hla$SampleID
+# unique(variant_df$SampleID)
+
+variant_df %&gt;% 
   left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
   dplyr::rowwise() %&gt;% 
   dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
@@ -812,6 +990,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/mnoguera/HLA_Analysis/blob/f9d9128976ad5a94196a0f97a924853aeee37802/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List-1.png" target="_blank">f9d9128</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/mnoguera/HLA_Analysis/blob/b76c6f9ec944576cefba3c1eb573b59520a27cba/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List-1.png" target="_blank">b76c6f9</a>
 </td>
 <td>
@@ -855,7 +1044,7 @@ loaded via a namespace (and not attached):
  [1] Rcpp_1.0.8        here_1.0.1        tidyr_1.2.0       getPass_0.2-2    
  [5] xlsxjars_0.6.1    ps_1.6.0          gtools_3.9.2      assertthat_0.2.1 
  [9] rprojroot_2.0.2   digest_0.6.29     utf8_1.2.2        R6_2.5.1         
-[13] backports_1.4.1   evaluate_0.15     highr_0.9         httr_1.4.2       
+[13] backports_1.4.1   evaluate_0.15     httr_1.4.2        highr_0.9        
 [17] pillar_1.7.0      rlang_1.0.1       rstudioapi_0.13   data.table_1.14.2
 [21] car_3.0-12        whisker_0.4       callr_3.7.0       jquerylib_0.1.4  
 [25] rmarkdown_2.11    labeling_0.4.2    stringr_1.4.0     munsell_0.5.0    
