@@ -50,7 +50,7 @@ HLA_mutations<-HLA_mutations %>%
   dplyr::group_by(HLA) %>% 
   dplyr::mutate(mutation_string=paste0(Mutation,collapse=";")) 
 
-head(HLA_mutations)
+head(HLA_mutations) %>% knitr::kable()
 ```
 
 
@@ -60,7 +60,7 @@ HLA_mutation_collapsed<-HLA_mutations %>%
   select(HLA,mutation_string) %>% 
   unique()
 
-head(HLA_mutations)
+# head(HLA_mutations)
 ```
 
 ### Patients HLA
@@ -77,7 +77,7 @@ patient_hla<-xlsx::read.xlsx("data/Mostres_Aelix_PreART_HLA_20200930_noID. with 
   dplyr::mutate(HLA.C1_2D=paste0("C",HLA.C1_2D)) %>%
   dplyr::mutate(HLA.C2_2D=paste0("C",HLA.C2_2D))
   
-head(patient_hla)
+# head(patient_hla)
 ```
 
 ### Patients Variants
@@ -144,8 +144,8 @@ Apparently there are no significant difference between groups regarding the numb
 
 ```{r calculate numbe of variants in patients HLA Mutations List}
 require(ggplot2)
-patient_hla$SampleID
-unique(variant_df$SampleID)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
 
 variant_df %>% 
   left_join(patient_hla,by="SampleID") %>% 
