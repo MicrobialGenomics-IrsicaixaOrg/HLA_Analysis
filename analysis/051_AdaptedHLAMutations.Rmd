@@ -6,7 +6,7 @@ output: html_document
 ---
 
 
-```{r setup}
+```{r setup,message=F,warning=F}
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(rootdir = here::here())
 ```
