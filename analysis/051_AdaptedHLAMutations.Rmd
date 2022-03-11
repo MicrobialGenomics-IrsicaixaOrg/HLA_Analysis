@@ -148,8 +148,8 @@ There are significant differences between groups regarding the number of HLA-spe
 
 ```{r calculate numbe of variants in patients HLA Mutations List}
 require(ggplot2)
-patient_hla$SampleID
-unique(variant_df$SampleID)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
 
 variant_df %>% 
   left_join(patient_hla,by="SampleID") %>% 
