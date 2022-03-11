@@ -82,7 +82,7 @@ patient_hla<-xlsx::read.xlsx("data/Mostres_Aelix_PreART_HLA_20200930_noID. with 
 
 ### Patients Variants
 
-We obtaine AA variants from PASeq and do several things:
+We obtain AA variants from PASeq analysis using self-consensus and codon-level variant calling only on pol, gag, vif and nef. We do several things:
 
 * Keep those above 20% of the viral population.
 * Remove Deletion
@@ -161,6 +161,7 @@ variant_df %>%
     theme_classic()+
     #geom_jitter(shape=16, position=position_jitter(0.2))+
     scale_color_manual(values=c("#E69F00", "#56B4E9"))+
+    ggtitle("(gag,pol,nef,vif) HLA-specific mutations",subtitle = "Adapted and non-Adapted Mutations")+
     theme(
       plot.title = element_text(color="black", size=14, face="bold.italic"),
       axis.title.x = element_text(color="darkgrey", size=12, face="bold"),
@@ -171,5 +172,7 @@ variant_df %>%
 
 
 ```
+
+
 
 sessionInfo()
