@@ -211,3 +211,40 @@ variant_df %>%
 
 
 ```
+
+
+### Good HLA
+
+```{r calculate numbe of variants in patients HLA Mutations List vs HLA Goodness}
+require(ggplot2)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
+
+goodHLA_samples<-c("Alx_12","Alx_24","Alx_40","Alx_17","Alx_02","Alx_39","Alx_23","Alx_26","Alx_37")
+variant_df %>% 
+  left_join(patient_hla,by="SampleID") %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %>% 
+  group_by(SampleID) %>% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %>% 
+  left_join(metadata_df) %>% 
+   dplyr::rename(ATI_duration=ATI_duration_.12_.12) %>% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(good_HLA=ifelse(SampleID %in% goodHLA_samples,"Good","Bad")) %>% 
+  ggplot(.,aes(x=good_HLA,y=n_HLA_mutations,color=good_HLA))+
+    geom_boxplot()+
+    ggpubr::stat_compare_means(method = "wilcox.test",label.x = 1.3,label.y = 25)+
+    theme_classic()+
+    #geom_jitter(shape=16, position=position_jitter(0.2))+
+    scale_color_manual(values=c("darkgreen", "orange"))+
+    ggtitle("(gag,pol,nef,vif) HLA-specific mutations vs ATI Duration",subtitle = "Adapted and non-Adapted Mutations")+
+    theme(
+      plot.title = element_text(color="black", size=14, face="bold.italic"),
+      axis.title.x = element_text(color="darkgrey", size=12, face="bold"),
+      axis.title.y = element_text(color="darkgrey", size=12, face="bold")
+    )+
+    geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8)
+
+
+```
