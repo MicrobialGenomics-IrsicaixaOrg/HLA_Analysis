@@ -50,7 +50,7 @@ HLA_mutations<-HLA_mutations %>%
   dplyr::group_by(HLA) %>% 
   dplyr::mutate(mutation_string=paste0(Mutation,collapse=";")) 
 
-head(HLA_mutations) %>% knitr::kable()
+# head(HLA_mutations) %>% knitr::kable()
 ```
 
 
@@ -125,7 +125,7 @@ for (patient in (patient_hla$SampleID)){
   aux_patient_hla_2D<-(patient_hla %>% 
     filter(SampleID==patient) %>% 
     select(HLA.A1_2D,HLA.A2_2D,HLA.B1_2D,HLA.B2_2D,HLA.C1_2D,HLA.C2_2D) )[1,]
-  patient_hla[patient_hla$SampleID==patient,"mutation_string"]<-(HLA_mutations %>% ### ADAPTED mutations filter to be located here
+  patient_hla[patient_hla$SampleID==patient,"mutation_string"]<-(HLA_mutations %>% 
     select(-mutation_string) %>% 
     dplyr::filter(HLA %in% aux_patient_hla_2D[1,]) %>% 
     dplyr::group_by(.) %>% 

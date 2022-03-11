@@ -52,7 +52,7 @@ HLA_mutations<-HLA_mutations %>%
   dplyr::group_by(HLA) %>% 
   dplyr::mutate(mutation_string=paste0(Mutation,collapse=";")) 
 
-head(HLA_mutations) %>% knitr::kable()
+# head(HLA_mutations) %>% knitr::kable()
 ```
 
 
