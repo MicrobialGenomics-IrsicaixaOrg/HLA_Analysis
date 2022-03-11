@@ -202,7 +202,7 @@ variant_df %>%
       axis.title.x = element_text(color="darkgrey", size=12, face="bold"),
       axis.title.y = element_text(color="darkgrey", size=12, face="bold")
     )+
-    geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8)
+    geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8)+facet_wrap(~TreatmentGroup)
   
 
 
