@@ -1,7 +1,7 @@
-name: "HLA_Analysis"
+name: HLA_Analysis
 output_dir: ../docs
 navbar:
-  title: "HLA_Analysis"
+  title: HLA_Analysis
   left:
   - text: Home
     href: index.html
@@ -13,6 +13,10 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fab fa-github
+    text: Source code
+    href: https://github.com/mnoguera/HLA_Analysis
 output:
   workflowr::wflow_html:
     toc: yes
