@@ -244,4 +244,29 @@ variant_df %>%
 
 
 ```
+
+### Correlation of HLA-Specific mutatons vs Fitness
+
+```{r calculate numbe of variants in patients HLA Mutations vs fitness}
+require(ggplot2)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
+
+variant_df %>% 
+  left_join(patient_hla,by="SampleID") %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %>% 
+  group_by(SampleID) %>% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %>% 
+  left_join(metadata_df) %>% 
+  dplyr::rename(ATI_duration=ATI_duration_.12_.12) %>% 
+  dplyr::rename(Fitness=Fitness..of.autologous.virus..aut.NL43..) %>% 
+  dplyr::filter(! is.na(Fitness)) %>% 
+  dplyr::mutate(Fitness=as.numeric(Fitness)) %>% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(good_HLA=ifelse(SampleID %in% goodHLA_samples,"Good","Bad")) %>% 
+  ggstatsplot::ggscatterstats(x=Fitness,y=n_HLA_mutations)
+
+```
 sessionInfo()
