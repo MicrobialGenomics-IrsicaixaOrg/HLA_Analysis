@@ -390,7 +390,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-03-11
+<strong>Last updated:</strong> 2022-03-13
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -481,16 +481,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistree2d2663e240e5aa08eb5c79deb534e4c434f78801targetblank2d2663ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mnoguera/HLA_Analysis/tree/2d2663e240e5aa08eb5c79deb534e4c434f78801" target="_blank">2d2663e</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreeac04d66f87f41c03364eee3ddd408e5e19779982targetblankac04d66a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mnoguera/HLA_Analysis/tree/ac04d66f87f41c03364eee3ddd408e5e19779982" target="_blank">ac04d66</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistree2d2663e240e5aa08eb5c79deb534e4c434f78801targetblank2d2663ea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreeac04d66f87f41c03364eee3ddd408e5e19779982targetblankac04d66a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mnoguera/HLA_Analysis/tree/2d2663e240e5aa08eb5c79deb534e4c434f78801" target="_blank">2d2663e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mnoguera/HLA_Analysis/tree/ac04d66f87f41c03364eee3ddd408e5e19779982" target="_blank">ac04d66</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -545,6 +545,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mnoguera/HLA_Analysis/blob/ac04d66f87f41c03364eee3ddd408e5e19779982/analysis/050_AllHLAMutations.Rmd" target="_blank">ac04d66</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-13
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/3cdbe6e0fb1f7344ae8f54c5894e4df4092ec204/docs/050_AllHLAMutations.html" target="_blank">3cdbe6e</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1137,8 +1171,8 @@ Marc Noguera-Julian
 </div>
 </div>
 </div>
-<div id="ati-duration" class="section level3">
-<h3>ATI Duration</h3>
+<div id="grouped-ati-duration" class="section level3">
+<h3>Grouped ATI Duration</h3>
 <pre class="r"><code>require(ggplot2)
 # patient_hla$SampleID
 # unique(variant_df$SampleID)
@@ -1229,8 +1263,27 @@ Marc Noguera-Julian
 </div>
 </div>
 </div>
-<div id="good-hla" class="section level3">
-<h3>Good HLA</h3>
+<div id="numeric-ati-duration" class="section level3">
+<h3>Numeric ATI Duration</h3>
+<pre class="r"><code>require(ggplot2)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
+
+variant_df %&gt;% 
+  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
+  dplyr::rowwise() %&gt;% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
+  group_by(SampleID) %&gt;% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
+  left_join(metadata_df) %&gt;% 
+   dplyr::rename(ATI_duration=ATI.duration..weeks..) %&gt;% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
+  ggstatsplot::ggscatterstats(x=ATI_duration,y=n_HLA_mutations,title = &quot;ATI Duration(weeks)&quot;,type = &quot;nonparametric&quot;)+ggthemes::theme_clean()</code></pre>
+<pre><code>Joining, by = &quot;SampleID&quot;
+Registered S3 method overwritten by &#39;ggside&#39;: method from +.gg ggplot2
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20List%20vs%20numeric%20ATI%20Duration-1.png" width="672" style="display: block; margin: auto;" /> ### Good HLA</p>
 <pre class="r"><code>require(ggplot2)
 # patient_hla$SampleID
 # unique(variant_df$SampleID)
@@ -1322,15 +1375,50 @@ variant_df %&gt;%
   dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
   dplyr::rowwise() %&gt;% 
   dplyr::mutate(good_HLA=ifelse(SampleID %in% goodHLA_samples,&quot;Good&quot;,&quot;Bad&quot;)) %&gt;% 
-  ggstatsplot::ggscatterstats(x=Fitness,y=n_HLA_mutations)</code></pre>
+  ggstatsplot::ggscatterstats(x=Fitness,y=n_HLA_mutations,title = &quot;Fitness&quot;,type = &quot;nonparametric&quot;)+ggthemes::theme_clean()</code></pre>
 <pre><code>Joining, by = &quot;SampleID&quot;</code></pre>
 <pre><code>Warning in mask$eval_all_mutate(quo): NAs introduced by coercion</code></pre>
-<pre><code>Registered S3 method overwritten by &#39;ggside&#39;:
-  method from   
-  +.gg   ggplot2
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20vs%20fitness-1.png" width="672" style="display: block; margin: auto;" /> sessionInfo()</p>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20vs%20fitness-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-vs-fitness-1">
+Past versions of "calculate numbe of variants in patients HLA Mutations vs fitness-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-vs-fitness-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/mnoguera/HLA_Analysis/blob/3cdbe6e0fb1f7344ae8f54c5894e4df4092ec204/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations vs fitness-1.png" target="_blank">3cdbe6e</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>sessionInfo()</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1357,41 +1445,39 @@ other attached packages:
 [1] ggplot2_3.3.5   gdata_2.18.0    dplyr_1.0.8     workflowr_1.7.0
 
 loaded via a namespace (and not attached):
-  [1] nlme_3.1-155           fs_1.5.2               insight_0.16.0        
-  [4] httr_1.4.2             rprojroot_2.0.2        tools_4.1.1           
-  [7] backports_1.4.1        bslib_0.3.1            utf8_1.2.2            
- [10] R6_2.5.1               statsExpressions_1.3.0 mgcv_1.8-39           
- [13] DBI_1.1.2              colorspace_2.0-3       withr_2.5.0           
- [16] tidyselect_1.1.2       processx_3.5.2         compiler_4.1.1        
- [19] git2r_0.29.0           performance_0.8.0      cli_3.2.0             
- [22] labeling_0.4.2         bayestestR_0.11.5      sass_0.4.0            
- [25] scales_1.1.1           mvtnorm_1.1-3          pbapply_1.5-0         
- [28] mc2d_0.1-21            callr_3.7.0            stringr_1.4.0         
- [31] digest_0.6.29          rmarkdown_2.11         WRS2_1.1-3            
- [34] pkgconfig_2.0.3        htmltools_0.5.2        fastmap_1.1.0         
- [37] highr_0.9              rlang_1.0.1            rstudioapi_0.13       
- [40] jquerylib_0.1.4        farver_2.1.0           generics_0.1.2        
- [43] jsonlite_1.8.0         gtools_3.9.2           xlsx_0.6.5            
- [46] car_3.0-12             magrittr_2.0.2         Matrix_1.4-0          
- [49] parameters_0.16.0      patchwork_1.1.1        Rcpp_1.0.8            
- [52] munsell_0.5.0          fansi_1.0.2            abind_1.4-5           
- [55] lifecycle_1.0.1        stringi_1.7.6          whisker_0.4           
- [58] yaml_2.3.5             carData_3.0-5          MASS_7.3-55           
- [61] plyr_1.8.6             grid_4.1.1             paletteer_1.4.0       
- [64] parallel_4.1.1         promises_1.2.0.1       crayon_1.5.0          
- [67] lattice_0.20-45        splines_4.1.1          xlsxjars_0.6.1        
- [70] zeallot_0.1.0          knitr_1.37             ps_1.6.0              
- [73] pillar_1.7.0           ggpubr_0.4.0           ggsignif_0.6.3        
- [76] effectsize_0.6.0.1     glue_1.6.2             evaluate_0.15         
- [79] getPass_0.2-2          data.table_1.14.2      vctrs_0.3.8           
- [82] httpuv_1.6.5           MatrixModels_0.5-0     BayesFactor_0.9.12-4.3
- [85] gtable_0.3.0           purrr_0.3.4            tidyr_1.2.0           
- [88] rematch2_2.1.2         reshape_0.8.8          assertthat_0.2.1      
- [91] datawizard_0.2.3       xfun_0.29              correlation_0.8.0     
- [94] broom_0.7.12           ggside_0.2.0           coda_0.19-4           
- [97] rstatix_0.7.0          later_1.3.0            tibble_3.1.6          
-[100] rJava_1.0-6            ggstatsplot_0.9.1      ellipsis_0.3.2        
-[103] here_1.0.1            </code></pre>
+ [1] nlme_3.1-155           fs_1.5.2               insight_0.16.0        
+ [4] httr_1.4.2             rprojroot_2.0.2        tools_4.1.1           
+ [7] backports_1.4.1        bslib_0.3.1            utf8_1.2.2            
+[10] R6_2.5.1               statsExpressions_1.3.0 mgcv_1.8-39           
+[13] DBI_1.1.2              colorspace_2.0-3       withr_2.5.0           
+[16] tidyselect_1.1.2       processx_3.5.2         compiler_4.1.1        
+[19] git2r_0.29.0           performance_0.8.0      cli_3.2.0             
+[22] labeling_0.4.2         bayestestR_0.11.5      sass_0.4.0            
+[25] scales_1.1.1           mvtnorm_1.1-3          mc2d_0.1-21           
+[28] callr_3.7.0            stringr_1.4.0          digest_0.6.29         
+[31] rmarkdown_2.11         WRS2_1.1-3             pkgconfig_2.0.3       
+[34] htmltools_0.5.2        fastmap_1.1.0          highr_0.9             
+[37] ggthemes_4.2.4         rlang_1.0.1            rstudioapi_0.13       
+[40] jquerylib_0.1.4        farver_2.1.0           generics_0.1.2        
+[43] jsonlite_1.8.0         gtools_3.9.2           xlsx_0.6.5            
+[46] car_3.0-12             magrittr_2.0.2         Matrix_1.4-0          
+[49] parameters_0.16.0      patchwork_1.1.1        Rcpp_1.0.8            
+[52] munsell_0.5.0          fansi_1.0.2            abind_1.4-5           
+[55] lifecycle_1.0.1        stringi_1.7.6          whisker_0.4           
+[58] yaml_2.3.5             carData_3.0-5          MASS_7.3-55           
+[61] plyr_1.8.6             grid_4.1.1             paletteer_1.4.0       
+[64] promises_1.2.0.1       crayon_1.5.0           lattice_0.20-45       
+[67] splines_4.1.1          xlsxjars_0.6.1         zeallot_0.1.0         
+[70] knitr_1.37             ps_1.6.0               pillar_1.7.0          
+[73] ggpubr_0.4.0           ggsignif_0.6.3         effectsize_0.6.0.1    
+[76] glue_1.6.2             evaluate_0.15          getPass_0.2-2         
+[79] data.table_1.14.2      vctrs_0.3.8            httpuv_1.6.5          
+[82] gtable_0.3.0           purrr_0.3.4            tidyr_1.2.0           
+[85] rematch2_2.1.2         reshape_0.8.8          assertthat_0.2.1      
+[88] datawizard_0.2.3       xfun_0.29              correlation_0.8.0     
+[91] broom_0.7.12           ggside_0.2.0           rstatix_0.7.0         
+[94] later_1.3.0            tibble_3.1.6           rJava_1.0-6           
+[97] ggstatsplot_0.9.1      ellipsis_0.3.2         here_1.0.1            </code></pre>
 </div>
 </div>
 </div>
