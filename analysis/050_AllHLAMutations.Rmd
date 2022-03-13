@@ -175,7 +175,7 @@ variant_df %>%
 
 ```
 
-### ATI Duration
+### Grouped ATI Duration
 
 ```{r calculate numbe of variants in patients HLA Mutations List vs ATI Duration}
 require(ggplot2)
@@ -209,6 +209,26 @@ variant_df %>%
 
 ```
 
+### Numeric ATI Duration
+
+```{r calculate numbe of variants in patients HLA Mutations List vs numeric ATI Duration}
+require(ggplot2)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
+
+variant_df %>% 
+  left_join(patient_hla,by="SampleID") %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %>% 
+  group_by(SampleID) %>% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %>% 
+  left_join(metadata_df) %>% 
+   dplyr::rename(ATI_duration=ATI.duration..weeks..) %>% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %>% 
+  ggstatsplot::ggscatterstats(x=ATI_duration,y=n_HLA_mutations,title = "ATI Duration(weeks)",type = "nonparametric")+ggthemes::theme_clean()
+
+
+```
 ### Good HLA
 
 ```{r calculate numbe of variants in patients HLA Mutations List vs HLA Goodness}
@@ -266,7 +286,7 @@ variant_df %>%
   dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %>% 
   dplyr::rowwise() %>% 
   dplyr::mutate(good_HLA=ifelse(SampleID %in% goodHLA_samples,"Good","Bad")) %>% 
-  ggstatsplot::ggscatterstats(x=Fitness,y=n_HLA_mutations)
+  ggstatsplot::ggscatterstats(x=Fitness,y=n_HLA_mutations,title = "Fitness",type = "nonparametric")+ggthemes::theme_clean()
 
 ```
 sessionInfo()
