@@ -115,7 +115,7 @@ metadata_df<-xlsx::read.xlsx("../Pre-Treatment/Aelix-002_VG/data/raw/Dades_Aelix
   dplyr::mutate(SampleID=paste0("Alx_",strsplit(ID1,"\ ",fixed=T)[[1]][2]))
 ```
 
-## Data Analysis
+## All HLAs
 
 ### HLA-specifc mutations within each patient. 2D resolution and both adapted/nonadapted
 
@@ -235,7 +235,7 @@ variant_df %>%
 ```
 
 
-### Good HLA
+### vs Good/non-Good HLA
 
 ```{r calculate numbe of variants in patients HLA Mutations List vs HLA Goodness}
 require(ggplot2)
@@ -296,3 +296,139 @@ variant_df %>%
   ggstatsplot::ggscatterstats(x=Fitness,y=n_HLA_mutations,title = "Fitness",type = "nonparametric")+ggthemes::theme_clean()
 
 ```
+
+# Exclude Good HLA
+
+Repeat the same analysis using only patients that do *NOT* have a good HLA(B2705, 5701, 1517 o 1503). Note that there is equal distribution of "good HLA" between Vacc and Pcbo groups.
+
+```{r cross good HLA and groups}
+goodHLA_samples<-c("Alx_12","Alx_24","Alx_40","Alx_17","Alx_02","Alx_39","Alx_23","Alx_26","Alx_37")
+metadata_df <- metadata_df %>% 
+  dplyr::mutate(good_HLA=ifelse(SampleID %in% goodHLA_samples,"Good","Bad"))
+
+ggstatsplot::ggbarstats(good_HLA,Treatment.Vax.vs.Pbo,data = metadata_df)
+
+```
+
+
+### Placebo vs Vaccine
+
+Apparently there are no significant difference between placebo and vaccine groups regarding the number of HLA-specific mutations, including both ADAPTED and non-ADAPTED.
+
+```{r calculate numbe of variants in patients HLA Mutations List exc_good_HLA}
+require(ggplot2)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
+
+goodHLA_samples<-c("Alx_12","Alx_24","Alx_40","Alx_17","Alx_02","Alx_39","Alx_23","Alx_26","Alx_37")
+variant_df<-variant_df %>% 
+  dplyr::filter(! SampleID %in% goodHLA_samples )
+
+variant_df %>% 
+  left_join(patient_hla,by="SampleID") %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %>% 
+  group_by(SampleID) %>% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %>% 
+  left_join(metadata_df) %>% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %>% 
+
+  ggplot(.,aes(x=TreatmentGroup,y=n_HLA_mutations,color=TreatmentGroup))+
+    geom_boxplot()+
+    ggpubr::stat_compare_means(method = "wilcox.test",label.x = 1.3,label.y = 25)+
+    theme_classic()+
+    #geom_jitter(shape=16, position=position_jitter(0.2))+
+    scale_color_manual(values=c("#E69F00", "#56B4E9"))+
+    ggtitle("(gag,pol,nef,vif) HLA-specific mutations",subtitle = "Adapted and non-Adapted Mutations")+
+    theme(
+      plot.title = element_text(color="black", size=14, face="bold.italic"),
+      axis.title.x = element_text(color="darkgrey", size=12, face="bold"),
+      axis.title.y = element_text(color="darkgrey", size=12, face="bold")
+    )+
+    geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8)
+  
+
+
+```
+
+### Grouped ATI Duration
+
+```{r calculate numbe of variants in patients HLA Mutations List vs ATI Duration exc_good_HLA}
+require(ggplot2)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
+
+variant_df %>% 
+  left_join(patient_hla,by="SampleID") %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %>% 
+  group_by(SampleID) %>% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %>% 
+  left_join(metadata_df) %>% 
+   dplyr::rename(ATI_duration=ATI_duration_.12_.12) %>% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %>% 
+  ggplot(.,aes(x=ATI_duration,y=n_HLA_mutations,color=ATI_duration))+
+    geom_boxplot()+
+    ggpubr::stat_compare_means(method = "wilcox.test",label.x = 1.3,label.y = 25)+
+    theme_classic()+
+    #geom_jitter(shape=16, position=position_jitter(0.2))+
+    scale_color_manual(values=c("darkred", "steelblue"))+
+    ggtitle("(gag,pol,nef,vif) HLA-specific mutations vs ATI Duration",subtitle = "Adapted and non-Adapted Mutations")+
+    theme(
+      plot.title = element_text(color="black", size=14, face="bold.italic"),
+      axis.title.x = element_text(color="darkgrey", size=12, face="bold"),
+      axis.title.y = element_text(color="darkgrey", size=12, face="bold")
+    )+
+    geom_dotplot(binaxis='y', stackdir='center', dotsize=0.8)+facet_wrap(~TreatmentGroup)
+  
+
+
+```
+
+### Numeric ATI Duration
+
+```{r calculate numbe of variants in patients HLA Mutations List vs numeric ATI Duration exc_good_HLA}
+require(ggplot2)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
+
+variant_df %>% 
+  left_join(patient_hla,by="SampleID") %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %>% 
+  group_by(SampleID) %>% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %>% 
+  left_join(metadata_df) %>% 
+   dplyr::rename(ATI_duration=ATI.duration..weeks..) %>% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %>% 
+  ggstatsplot::ggscatterstats(x=ATI_duration,y=n_HLA_mutations,title = "ATI Duration(weeks)",type = "nonparametric")+ggthemes::theme_clean()
+
+
+```
+
+### Correlation of HLA-Specific mutatons vs Fitness
+
+```{r calculate numbe of variants in patients HLA Mutations vs fitness exc_good_HLA}
+require(ggplot2)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
+
+variant_df %>% 
+  left_join(patient_hla,by="SampleID") %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %>% 
+  group_by(SampleID) %>% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %>% 
+  left_join(metadata_df) %>% 
+  dplyr::rename(ATI_duration=ATI_duration_.12_.12) %>% 
+  dplyr::rename(Fitness=Fitness..of.autologous.virus..aut.NL43..) %>% 
+  dplyr::filter(! is.na(Fitness)) %>% 
+  dplyr::mutate(Fitness=as.numeric(Fitness)) %>% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(good_HLA=ifelse(SampleID %in% goodHLA_samples,"Good","Bad")) %>% 
+  ggstatsplot::ggscatterstats(x=Fitness,y=n_HLA_mutations,title = "Fitness",type = "nonparametric")+ggthemes::theme_clean()
+
+```
+
+

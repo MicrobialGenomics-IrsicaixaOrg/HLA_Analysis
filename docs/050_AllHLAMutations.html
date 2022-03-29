@@ -376,7 +376,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -385,7 +385,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -397,7 +397,7 @@ div.tocify {
 <strong>Last updated:</strong> 2022-03-29
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>HLA_Analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -413,12 +413,12 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -485,16 +485,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreeb74e5304a101f81f7192b4724ef0b9dbfed658b9targetblankb74e530a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mnoguera/HLA_Analysis/tree/b74e5304a101f81f7192b4724ef0b9dbfed658b9" target="_blank">b74e530</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistree54eba3436afa503a06fa2352cb4d5154b6794f8ctargetblank54eba34a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mnoguera/HLA_Analysis/tree/54eba3436afa503a06fa2352cb4d5154b6794f8c" target="_blank">54eba34</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreeb74e5304a101f81f7192b4724ef0b9dbfed658b9targetblankb74e530a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistree54eba3436afa503a06fa2352cb4d5154b6794f8ctargetblank54eba34a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mnoguera/HLA_Analysis/tree/b74e5304a101f81f7192b4724ef0b9dbfed658b9" target="_blank">b74e530</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mnoguera/HLA_Analysis/tree/54eba3436afa503a06fa2352cb4d5154b6794f8c" target="_blank">54eba34</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -511,6 +511,10 @@ Ignored files:
     Ignored:    data/Mostres_Aelix_PreART_HLA_20200930_noID. with 2 digit HLA reduction 3-2-2022_vMNJ_1.0.xlsx
     Ignored:    data/Optimal list 2022 with coordinates for ALX 002 analyses 3-2-2022 .xls
     Ignored:    data/VariantData_PASeq/
+
+Unstaged changes:
+    Modified:   analysis/050_AllHLAMutations.Rmd
+    Modified:   analysis/051_AdaptedHLAMutations.Rmd
 
 </code></pre>
 <p>
@@ -549,6 +553,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/54eba3436afa503a06fa2352cb4d5154b6794f8c/docs/050_AllHLAMutations.html" target="_blank">54eba34</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1040,7 +1061,7 @@ Attaching package: &#39;gdata&#39;</code></pre>
 <pre><code>The following object is masked from &#39;package:base&#39;:
 
     startsWith</code></pre>
-<pre class="r"><code>HLA_mutations&lt;-read.xls(&quot;data/HLA footprints for AELIX002 analyses without B15 imprints 3-2-2022.xls&quot;,sheet = 2)
+<pre class="r"><code>HLA_mutations&lt;-read.xls(paste0(here::here(),&quot;/data/HLA footprints for AELIX002 analyses without B15 imprints 3-2-2022.xls&quot;),sheet = 2)
 HLA_mutations&lt;-HLA_mutations %&gt;% 
   dplyr::mutate(mutation=paste0(AAHXB2,position_in_protein,AminoAcid)) %&gt;% 
   dplyr::mutate(HXB2_start=strsplit(x = HXB2_location,split = &quot;..&quot;,fixed=T)[[1]][1]) %&gt;% 
@@ -1059,7 +1080,7 @@ HLA_mutations&lt;-HLA_mutations %&gt;%
 <div id="patients-hla" class="section level3">
 <h3>Patients HLA</h3>
 <p>We have an excel sheet that has been manually edited, containing 4D and 2D HLA information for each patient(SAmpleID). We basically add A/B/C to each allele to be able to merge downstream</p>
-<pre class="r"><code>patient_hla&lt;-xlsx::read.xlsx(&quot;data/Mostres_Aelix_PreART_HLA_20200930_noID. with 2 digit HLA reduction 3-2-2022_vMNJ_1.0.xlsx&quot;,sheetIndex = 1) %&gt;% 
+<pre class="r"><code>patient_hla&lt;-xlsx::read.xlsx(paste0(here::here(),&quot;/data/Mostres_Aelix_PreART_HLA_20200930_noID. with 2 digit HLA reduction 3-2-2022_vMNJ_1.0.xlsx&quot;),sheetIndex = 1) %&gt;% 
   dplyr::mutate(HLA.A1_2D=paste0(&quot;A&quot;,HLA.A1_2D)) %&gt;%
   dplyr::mutate(HLA.A2_2D=paste0(&quot;A&quot;,HLA.A2_2D)) %&gt;%
   dplyr::mutate(HLA.B1_2D=paste0(&quot;C&quot;,HLA.B1_2D)) %&gt;%
@@ -1080,7 +1101,7 @@ HLA_mutations&lt;-HLA_mutations %&gt;%
 <li>Change sample names to match format above.</li>
 </ul>
 <pre class="r"><code>require(dplyr)
-temp = list.files(path = &quot;data/VariantData_PASeq/&quot;,pattern=&quot;*.csv&quot;,full.names = T)
+temp = list.files(path = paste0(here::here(),&quot;/data/VariantData_PASeq/&quot;),pattern=&quot;*.csv&quot;,full.names = T)
 variant_df&lt;-lapply(temp, read.csv) %&gt;% 
   data.table::rbindlist() %&gt;% 
   dplyr::filter(FREQ&gt;=20) %&gt;%
@@ -1090,13 +1111,13 @@ variant_df&lt;-lapply(temp, read.csv) %&gt;%
   dplyr::mutate(Mutation=paste0(PROTEIN,&quot;:&quot;,MUTATION)) %&gt;% 
   dplyr::filter(! grepl(&quot;Del&quot;,MUTATION,ignore.case = T)) %&gt;% 
   dplyr::mutate(SampleID=stringr::str_replace(SampleID,&quot;-&quot;,&quot;_&quot;))</code></pre>
-<pre class="r"><code>metadata_df&lt;-xlsx::read.xlsx(&quot;../Pre-Treatment/Aelix-002_VG/data/raw/Dades_Aelix_x Seq_20210714.xlsx&quot;,sheetIndex = 1) %&gt;% 
+<pre class="r"><code>metadata_df&lt;-xlsx::read.xlsx(paste0(here::here(),&quot;/../Pre-Treatment/Aelix-002_VG/data/raw/Dades_Aelix_x Seq_20210714.xlsx&quot;),sheetIndex = 1) %&gt;% 
   dplyr::rowwise() %&gt;% 
   dplyr::mutate(SampleID=paste0(&quot;Alx_&quot;,strsplit(ID1,&quot;\ &quot;,fixed=T)[[1]][2]))</code></pre>
 </div>
 </div>
-<div id="data-analysis" class="section level2">
-<h2>Data Analysis</h2>
+<div id="all-hlas" class="section level2">
+<h2>All HLAs</h2>
 <div id="hla-specific-2d-all-mutations" class="section level3">
 <h3>HLA-specific | 2D | All mutations</h3>
 <p>For each patient we select the mutations that are specific to his/her HLA and create a patient-specific mutation string that contains all mutations.</p>
@@ -1360,8 +1381,8 @@ Marc Noguera-Julian
 </div>
 </div>
 </div>
-<div id="good-hla" class="section level3">
-<h3>Good HLA</h3>
+<div id="vs-goodnon-good-hla" class="section level3">
+<h3>vs Good/non-Good HLA</h3>
 <pre class="r"><code>require(ggplot2)
 # patient_hla$SampleID
 # unique(variant_df$SampleID)
@@ -1507,6 +1528,135 @@ Marc Noguera-Julian
 </table>
 </div>
 </div>
+</div>
+</div>
+<div id="exclude-good-hla" class="section level2">
+<h2>Exclude Good HLA</h2>
+<p>Repeat the same analysis using only patients that do <em>NOT</em> have a good HLA(B2705, 5701, 1517 o 1503). Note that there is equal distribution of “good HLA” between Vacc and Pcbo groups.</p>
+<pre class="r"><code>goodHLA_samples&lt;-c(&quot;Alx_12&quot;,&quot;Alx_24&quot;,&quot;Alx_40&quot;,&quot;Alx_17&quot;,&quot;Alx_02&quot;,&quot;Alx_39&quot;,&quot;Alx_23&quot;,&quot;Alx_26&quot;,&quot;Alx_37&quot;)
+metadata_df &lt;- metadata_df %&gt;% 
+  dplyr::mutate(good_HLA=ifelse(SampleID %in% goodHLA_samples,&quot;Good&quot;,&quot;Bad&quot;))
+
+ggstatsplot::ggbarstats(good_HLA,Treatment.Vax.vs.Pbo,data = metadata_df)</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/cross%20good%20HLA%20and%20groups-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="placebo-vs-vaccine-1" class="section level3">
+<h3>Placebo vs Vaccine</h3>
+<p>Apparently there are no significant difference between placebo and vaccine groups regarding the number of HLA-specific mutations, including both ADAPTED and non-ADAPTED.</p>
+<pre class="r"><code>require(ggplot2)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
+
+goodHLA_samples&lt;-c(&quot;Alx_12&quot;,&quot;Alx_24&quot;,&quot;Alx_40&quot;,&quot;Alx_17&quot;,&quot;Alx_02&quot;,&quot;Alx_39&quot;,&quot;Alx_23&quot;,&quot;Alx_26&quot;,&quot;Alx_37&quot;)
+variant_df&lt;-variant_df %&gt;% 
+  dplyr::filter(! SampleID %in% goodHLA_samples )
+
+variant_df %&gt;% 
+  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
+  dplyr::rowwise() %&gt;% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
+  group_by(SampleID) %&gt;% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
+  left_join(metadata_df) %&gt;% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
+
+  ggplot(.,aes(x=TreatmentGroup,y=n_HLA_mutations,color=TreatmentGroup))+
+    geom_boxplot()+
+    ggpubr::stat_compare_means(method = &quot;wilcox.test&quot;,label.x = 1.3,label.y = 25)+
+    theme_classic()+
+    #geom_jitter(shape=16, position=position_jitter(0.2))+
+    scale_color_manual(values=c(&quot;#E69F00&quot;, &quot;#56B4E9&quot;))+
+    ggtitle(&quot;(gag,pol,nef,vif) HLA-specific mutations&quot;,subtitle = &quot;Adapted and non-Adapted Mutations&quot;)+
+    theme(
+      plot.title = element_text(color=&quot;black&quot;, size=14, face=&quot;bold.italic&quot;),
+      axis.title.x = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;),
+      axis.title.y = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;)
+    )+
+    geom_dotplot(binaxis=&#39;y&#39;, stackdir=&#39;center&#39;, dotsize=0.8)</code></pre>
+<pre><code>Joining, by = &quot;SampleID&quot;
+Bin width defaults to 1/30 of the range of the data. Pick better value with
+`binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20List%20exc_good_HLA-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="grouped-ati-duration-1" class="section level3">
+<h3>Grouped ATI Duration</h3>
+<pre class="r"><code>require(ggplot2)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
+
+variant_df %&gt;% 
+  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
+  dplyr::rowwise() %&gt;% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
+  group_by(SampleID) %&gt;% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
+  left_join(metadata_df) %&gt;% 
+   dplyr::rename(ATI_duration=ATI_duration_.12_.12) %&gt;% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
+  ggplot(.,aes(x=ATI_duration,y=n_HLA_mutations,color=ATI_duration))+
+    geom_boxplot()+
+    ggpubr::stat_compare_means(method = &quot;wilcox.test&quot;,label.x = 1.3,label.y = 25)+
+    theme_classic()+
+    #geom_jitter(shape=16, position=position_jitter(0.2))+
+    scale_color_manual(values=c(&quot;darkred&quot;, &quot;steelblue&quot;))+
+    ggtitle(&quot;(gag,pol,nef,vif) HLA-specific mutations vs ATI Duration&quot;,subtitle = &quot;Adapted and non-Adapted Mutations&quot;)+
+    theme(
+      plot.title = element_text(color=&quot;black&quot;, size=14, face=&quot;bold.italic&quot;),
+      axis.title.x = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;),
+      axis.title.y = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;)
+    )+
+    geom_dotplot(binaxis=&#39;y&#39;, stackdir=&#39;center&#39;, dotsize=0.8)+facet_wrap(~TreatmentGroup)</code></pre>
+<pre><code>Joining, by = &quot;SampleID&quot;
+Bin width defaults to 1/30 of the range of the data. Pick better value with
+`binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20List%20vs%20ATI%20Duration%20exc_good_HLA-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="numeric-ati-duration-1" class="section level3">
+<h3>Numeric ATI Duration</h3>
+<pre class="r"><code>require(ggplot2)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
+
+variant_df %&gt;% 
+  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
+  dplyr::rowwise() %&gt;% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
+  group_by(SampleID) %&gt;% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
+  left_join(metadata_df) %&gt;% 
+   dplyr::rename(ATI_duration=ATI.duration..weeks..) %&gt;% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
+  ggstatsplot::ggscatterstats(x=ATI_duration,y=n_HLA_mutations,title = &quot;ATI Duration(weeks)&quot;,type = &quot;nonparametric&quot;)+ggthemes::theme_clean()</code></pre>
+<pre><code>Joining, by = &quot;SampleID&quot;
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20List%20vs%20numeric%20ATI%20Duration%20exc_good_HLA-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="correlation-of-hla-specific-mutatons-vs-fitness-1" class="section level3">
+<h3>Correlation of HLA-Specific mutatons vs Fitness</h3>
+<pre class="r"><code>require(ggplot2)
+# patient_hla$SampleID
+# unique(variant_df$SampleID)
+
+variant_df %&gt;% 
+  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
+  dplyr::rowwise() %&gt;% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
+  group_by(SampleID) %&gt;% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
+  left_join(metadata_df) %&gt;% 
+  dplyr::rename(ATI_duration=ATI_duration_.12_.12) %&gt;% 
+  dplyr::rename(Fitness=Fitness..of.autologous.virus..aut.NL43..) %&gt;% 
+  dplyr::filter(! is.na(Fitness)) %&gt;% 
+  dplyr::mutate(Fitness=as.numeric(Fitness)) %&gt;% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
+  dplyr::rowwise() %&gt;% 
+  dplyr::mutate(good_HLA=ifelse(SampleID %in% goodHLA_samples,&quot;Good&quot;,&quot;Bad&quot;)) %&gt;% 
+  ggstatsplot::ggscatterstats(x=Fitness,y=n_HLA_mutations,title = &quot;Fitness&quot;,type = &quot;nonparametric&quot;)+ggthemes::theme_clean()</code></pre>
+<pre><code>Joining, by = &quot;SampleID&quot;</code></pre>
+<pre><code>Warning in mask$eval_all_mutate(quo): NAs introduced by coercion</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20vs%20fitness%20exc_good_HLA-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>sessionInfo()</p>
 <br>
 <p>
@@ -1534,39 +1684,41 @@ other attached packages:
 [1] ggplot2_3.3.5   gdata_2.18.0    dplyr_1.0.8     workflowr_1.7.0
 
 loaded via a namespace (and not attached):
- [1] nlme_3.1-155           fs_1.5.2               insight_0.16.0        
- [4] httr_1.4.2             rprojroot_2.0.2        tools_4.1.1           
- [7] backports_1.4.1        bslib_0.3.1            utf8_1.2.2            
-[10] R6_2.5.1               statsExpressions_1.3.0 mgcv_1.8-39           
-[13] DBI_1.1.2              colorspace_2.0-3       withr_2.5.0           
-[16] tidyselect_1.1.2       processx_3.5.2         compiler_4.1.1        
-[19] git2r_0.30.1           performance_0.8.0      cli_3.2.0             
-[22] labeling_0.4.2         bayestestR_0.11.5      sass_0.4.0            
-[25] scales_1.1.1           mvtnorm_1.1-3          mc2d_0.1-21           
-[28] callr_3.7.0            stringr_1.4.0          digest_0.6.29         
-[31] rmarkdown_2.13         WRS2_1.1-3             pkgconfig_2.0.3       
-[34] htmltools_0.5.2        fastmap_1.1.0          highr_0.9             
-[37] ggthemes_4.2.4         rlang_1.0.2            rstudioapi_0.13       
-[40] jquerylib_0.1.4        farver_2.1.0           generics_0.1.2        
-[43] jsonlite_1.8.0         gtools_3.9.2           xlsx_0.6.5            
-[46] car_3.0-12             magrittr_2.0.2         Matrix_1.4-0          
-[49] parameters_0.17.0      patchwork_1.1.1        Rcpp_1.0.8.3          
-[52] munsell_0.5.0          fansi_1.0.2            abind_1.4-5           
-[55] lifecycle_1.0.1        stringi_1.7.6          whisker_0.4           
-[58] yaml_2.3.5             carData_3.0-5          MASS_7.3-55           
-[61] plyr_1.8.6             grid_4.1.1             paletteer_1.4.0       
-[64] promises_1.2.0.1       crayon_1.5.0           lattice_0.20-45       
-[67] splines_4.1.1          xlsxjars_0.6.1         zeallot_0.1.0         
-[70] knitr_1.37             ps_1.6.0               pillar_1.7.0          
-[73] ggpubr_0.4.0           ggsignif_0.6.3         effectsize_0.6.0.1    
-[76] glue_1.6.2             evaluate_0.15          getPass_0.2-2         
-[79] data.table_1.14.2      vctrs_0.3.8            httpuv_1.6.5          
-[82] gtable_0.3.0           purrr_0.3.4            tidyr_1.2.0           
-[85] rematch2_2.1.2         reshape_0.8.8          assertthat_0.2.1      
-[88] datawizard_0.3.0       xfun_0.30              correlation_0.8.0     
-[91] broom_0.7.12           ggside_0.2.0           rstatix_0.7.0         
-[94] later_1.3.0            tibble_3.1.6           rJava_1.0-6           
-[97] ggstatsplot_0.9.1      ellipsis_0.3.2         here_1.0.1            </code></pre>
+  [1] nlme_3.1-155           fs_1.5.2               insight_0.16.0        
+  [4] httr_1.4.2             rprojroot_2.0.2        tools_4.1.1           
+  [7] backports_1.4.1        bslib_0.3.1            utf8_1.2.2            
+ [10] R6_2.5.1               statsExpressions_1.3.0 mgcv_1.8-39           
+ [13] DBI_1.1.2              colorspace_2.0-3       withr_2.5.0           
+ [16] tidyselect_1.1.2       processx_3.5.2         compiler_4.1.1        
+ [19] git2r_0.30.1           performance_0.8.0      cli_3.2.0             
+ [22] prismatic_1.1.0        labeling_0.4.2         bayestestR_0.11.5     
+ [25] sass_0.4.0             scales_1.1.1           mvtnorm_1.1-3         
+ [28] pbapply_1.5-0          mc2d_0.1-21            callr_3.7.0           
+ [31] stringr_1.4.0          digest_0.6.29          rmarkdown_2.13        
+ [34] WRS2_1.1-3             pkgconfig_2.0.3        htmltools_0.5.2       
+ [37] fastmap_1.1.0          highr_0.9              ggthemes_4.2.4        
+ [40] rlang_1.0.2            rstudioapi_0.13        jquerylib_0.1.4       
+ [43] farver_2.1.0           generics_0.1.2         jsonlite_1.8.0        
+ [46] gtools_3.9.2           xlsx_0.6.5             car_3.0-12            
+ [49] magrittr_2.0.2         Matrix_1.4-0           parameters_0.17.0     
+ [52] patchwork_1.1.1        Rcpp_1.0.8.3           munsell_0.5.0         
+ [55] fansi_1.0.2            abind_1.4-5            lifecycle_1.0.1       
+ [58] stringi_1.7.6          whisker_0.4            yaml_2.3.5            
+ [61] carData_3.0-5          MASS_7.3-55            plyr_1.8.6            
+ [64] grid_4.1.1             paletteer_1.4.0        parallel_4.1.1        
+ [67] promises_1.2.0.1       crayon_1.5.0           lattice_0.20-45       
+ [70] splines_4.1.1          xlsxjars_0.6.1         zeallot_0.1.0         
+ [73] knitr_1.37             ps_1.6.0               pillar_1.7.0          
+ [76] ggpubr_0.4.0           ggsignif_0.6.3         effectsize_0.6.0.1    
+ [79] glue_1.6.2             evaluate_0.15          getPass_0.2-2         
+ [82] data.table_1.14.2      vctrs_0.3.8            httpuv_1.6.5          
+ [85] MatrixModels_0.5-0     BayesFactor_0.9.12-4.3 gtable_0.3.0          
+ [88] purrr_0.3.4            tidyr_1.2.0            rematch2_2.1.2        
+ [91] reshape_0.8.8          assertthat_0.2.1       datawizard_0.3.0      
+ [94] xfun_0.30              correlation_0.8.0      broom_0.7.12          
+ [97] ggside_0.2.0           coda_0.19-4            rstatix_0.7.0         
+[100] later_1.3.0            tibble_3.1.6           rJava_1.0-6           
+[103] ggstatsplot_0.9.1      ellipsis_0.3.2         here_1.0.1            </code></pre>
 </div>
 </div>
 </div>
