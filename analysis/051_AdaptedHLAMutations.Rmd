@@ -297,7 +297,7 @@ variant_df %>%
 
 ```
 
-# Exclude Good HLA
+## Exclude Good HLA
 
 Repeat the same analysis using only patients that do *NOT* have a good HLA(B2705, 5701, 1517 o 1503). Note that there is equal distribution of "good HLA" between Vacc and Pcbo groups.
 
