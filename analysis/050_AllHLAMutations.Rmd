@@ -5,8 +5,8 @@ date: "3/3/2022"
 output: html_document
 ---
 
-```{r setup,message=F,warning=F,include=T,eva=T}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup,message=F,warning=F,include=T,eval=T,echo=F}
+knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(rootdir = here::here())
 ```
 
