@@ -485,16 +485,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistree69d7106e6a11360bab91abcf972418d0a40f5987targetblank69d7106a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mnoguera/HLA_Analysis/tree/69d7106e6a11360bab91abcf972418d0a40f5987" target="_blank">69d7106</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreeb0d4cad9faa0e16ad2b1afd20b4fb276e46fa1c5targetblankb0d4cada"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mnoguera/HLA_Analysis/tree/b0d4cad9faa0e16ad2b1afd20b4fb276e46fa1c5" target="_blank">b0d4cad</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistree69d7106e6a11360bab91abcf972418d0a40f5987targetblank69d7106a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreeb0d4cad9faa0e16ad2b1afd20b4fb276e46fa1c5targetblankb0d4cada" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mnoguera/HLA_Analysis/tree/69d7106e6a11360bab91abcf972418d0a40f5987" target="_blank">69d7106</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/mnoguera/HLA_Analysis/tree/b0d4cad9faa0e16ad2b1afd20b4fb276e46fa1c5" target="_blank">b0d4cad</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -549,6 +549,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/mnoguera/HLA_Analysis/blob/b0d4cad9faa0e16ad2b1afd20b4fb276e46fa1c5/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">b0d4cad</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+<td>
+wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/6ee95122ac73a4f7ee8c08b9407b6e47883ef061/docs/051_AdaptedHLAMutations.html" target="_blank">6ee9512</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1145,7 +1179,6 @@ init analysis (adapted and non-adapted)
 <li>Generate a mutation_string new field, that contains all mutations for each HLA. This is not elegant but may be practical.</li>
 <li>Filter for those mutations with the “ADAPTED” flage to be used downstream</li>
 </ul>
-<pre class="r"><code>require(dplyr)</code></pre>
 <pre><code>Loading required package: dplyr</code></pre>
 <pre><code>Warning: package &#39;dplyr&#39; was built under R version 4.1.2</code></pre>
 <pre><code>
@@ -1156,35 +1189,10 @@ Attaching package: &#39;dplyr&#39;</code></pre>
 <pre><code>The following objects are masked from &#39;package:base&#39;:
 
     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>HLA_mutations&lt;-gdata::read.xls(&quot;data/HLA footprints for AELIX002 analyses without B15 imprints 3-2-2022.xls&quot;,sheet = 2)
-HLA_mutations&lt;-HLA_mutations %&gt;% 
-  dplyr::mutate(mutation=paste0(AAHXB2,position_in_protein,AminoAcid)) %&gt;% 
-  dplyr::filter(DIRECTION==&quot;ADAPTED&quot;) %&gt;% 
-  dplyr::mutate(HXB2_start=strsplit(x = HXB2_location,split = &quot;..&quot;,fixed=T)[[1]][1]) %&gt;% 
-  dplyr::mutate(HXB2_end=strsplit(x = HXB2_location,split = &quot;..&quot;,fixed=T)[[1]][2]) %&gt;% 
-  dplyr::mutate(Mutation=paste0(Protein,&quot;:&quot;,AAHXB2,position_in_protein,AminoAcid)) %&gt;% 
-  dplyr::group_by(HLA) %&gt;% 
-  dplyr::mutate(mutation_string=paste0(Mutation,collapse=&quot;;&quot;)) 
-
-# head(HLA_mutations) %&gt;% knitr::kable()</code></pre>
-<pre class="r"><code>HLA_mutation_collapsed&lt;-HLA_mutations %&gt;% 
-  select(HLA,mutation_string) %&gt;% 
-  unique()
-
-# head(HLA_mutations)</code></pre>
 </div>
 <div id="patients-hla" class="section level3">
 <h3>Patients HLA</h3>
 <p>We have an excel sheet that has been manually edited, containing 4D and 2D HLA information for each patient(SAmpleID). We basically add A/B/C to each allele to be able to merge downstream</p>
-<pre class="r"><code>patient_hla&lt;-xlsx::read.xlsx(&quot;data/Mostres_Aelix_PreART_HLA_20200930_noID. with 2 digit HLA reduction 3-2-2022_vMNJ_1.0.xlsx&quot;,sheetIndex = 1) %&gt;% 
-  dplyr::mutate(HLA.A1_2D=paste0(&quot;A&quot;,HLA.A1_2D)) %&gt;%
-  dplyr::mutate(HLA.A2_2D=paste0(&quot;A&quot;,HLA.A2_2D)) %&gt;%
-  dplyr::mutate(HLA.B1_2D=paste0(&quot;C&quot;,HLA.B1_2D)) %&gt;%
-  dplyr::mutate(HLA.B2_2D=paste0(&quot;C&quot;,HLA.B2_2D)) %&gt;%
-  dplyr::mutate(HLA.C1_2D=paste0(&quot;C&quot;,HLA.C1_2D)) %&gt;%
-  dplyr::mutate(HLA.C2_2D=paste0(&quot;C&quot;,HLA.C2_2D))
-  
-# head(patient_hla)</code></pre>
 </div>
 <div id="patients-variants" class="section level3">
 <h3>Patients Variants</h3>
@@ -1196,20 +1204,6 @@ HLA_mutations&lt;-HLA_mutations %&gt;%
 <li>Add protein names to match the format above(“GAG:T454R”)</li>
 <li>Change sample names to match format above.</li>
 </ul>
-<pre class="r"><code>require(dplyr)
-temp = list.files(path = &quot;data/VariantData_PASeq/&quot;,pattern=&quot;*.csv&quot;,full.names = T)
-variant_df&lt;-lapply(temp, read.csv) %&gt;% 
-  data.table::rbindlist() %&gt;% 
-  dplyr::filter(FREQ&gt;=20) %&gt;%
-  tidyr::separate(FILE,into = c(&quot;SampleID&quot;,&quot;Garbage&quot;),sep = &quot;_S&quot;) %&gt;% 
-  dplyr::select(-Garbage) %&gt;% 
-  dplyr::mutate(PROTEIN=toupper(PROTEIN)) %&gt;% 
-  dplyr::mutate(Mutation=paste0(PROTEIN,&quot;:&quot;,MUTATION)) %&gt;% 
-  dplyr::filter(! grepl(&quot;Del&quot;,MUTATION,ignore.case = T)) %&gt;% 
-  dplyr::mutate(SampleID=stringr::str_replace(SampleID,&quot;-&quot;,&quot;_&quot;))</code></pre>
-<pre class="r"><code>metadata_df&lt;-xlsx::read.xlsx(&quot;../Pre-Treatment/Aelix-002_VG/data/raw/Dades_Aelix_x Seq_20210714.xlsx&quot;,sheetIndex = 1) %&gt;% 
-  dplyr::rowwise() %&gt;% 
-  dplyr::mutate(SampleID=paste0(&quot;Alx_&quot;,strsplit(ID1,&quot;\ &quot;,fixed=T)[[1]][2]))</code></pre>
 </div>
 </div>
 <div id="all-hlas" class="section level2">
@@ -1217,51 +1211,12 @@ variant_df&lt;-lapply(temp, read.csv) %&gt;%
 <div id="hla-specifc-mutations-within-each-patient.-2d-resolution-and-both-adaptednonadapted" class="section level3">
 <h3>HLA-specifc mutations within each patient. 2D resolution and both adapted/nonadapted</h3>
 <p>For each patient we select the mutations that are specific to his/her HLA and create a patient-specific mutation string that contains all mutations.</p>
-<pre class="r"><code>require(dplyr)
-
-for (patient in (patient_hla$SampleID)){
-  aux_patient_hla_2D&lt;-(patient_hla %&gt;% 
-    filter(SampleID==patient) %&gt;% 
-    select(HLA.A1_2D,HLA.A2_2D,HLA.B1_2D,HLA.B2_2D,HLA.C1_2D,HLA.C2_2D) )[1,]
-  patient_hla[patient_hla$SampleID==patient,&quot;mutation_string&quot;]&lt;-(HLA_mutations %&gt;% ### ADAPTED mutations filter to be located here
-    select(-mutation_string) %&gt;% 
-    dplyr::filter(HLA %in% aux_patient_hla_2D[1,]) %&gt;% 
-    dplyr::group_by(.) %&gt;% 
-    dplyr::mutate(mutation_string=paste0(Mutation,collapse=&quot;;&quot;)) %&gt;% 
-    dplyr::mutate(SampleID=patient) %&gt;% 
-    dplyr::select(SampleID,mutation_string) %&gt;% 
-    unique())$mutation_string
-}</code></pre>
 <p>For each patient, we take all AA variants and take each one of them as being present in the patients mutations_string, thus indicating whether each mutation is specific of the patients HLA. Then we sum up the number of mutations in each patients that are found in their HLA and integrate patient metadata regarding Placebo/Vaccine group to nicely plot and run test the stats (Wilcoxon Rank sum)</p>
 <p>There are significant differences between groups regarding the number of HLA-specific mutations when considering ADAPTED mutations only.</p>
-<pre class="r"><code>require(ggplot2)</code></pre>
 <pre><code>Loading required package: ggplot2</code></pre>
-<pre class="r"><code># patient_hla$SampleID
-# unique(variant_df$SampleID)
-
-variant_df %&gt;% 
-  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
-  dplyr::rowwise() %&gt;% 
-  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
-  group_by(SampleID) %&gt;% 
-  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
-  left_join(metadata_df) %&gt;% 
-  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
-  ggplot(.,aes(x=TreatmentGroup,y=n_HLA_mutations,color=TreatmentGroup))+
-    geom_boxplot()+
-    ggpubr::stat_compare_means(method = &quot;wilcox.test&quot;,label.x = 1.3,label.y = 15)+
-    theme_classic()+
-    #geom_jitter(shape=16, position=position_jitter(0.2))+
-    scale_color_manual(values=c(&quot;#E69F00&quot;, &quot;#56B4E9&quot;))+
-    ggtitle(&quot;(gag,pol,nef,vif) HLA-specific mutations&quot;,subtitle = &quot;Adapted Mutations Only&quot;)+
-    theme(
-      plot.title = element_text(color=&quot;black&quot;, size=14, face=&quot;bold.italic&quot;),
-      axis.title.x = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;),
-      axis.title.y = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;)
-    )+
-    geom_dotplot(binaxis=&#39;y&#39;, stackdir=&#39;center&#39;, dotsize=0.8)</code></pre>
-<pre><code>Joining, by = &quot;SampleID&quot;</code></pre>
-<pre><code>Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.</code></pre>
+<pre><code>Joining, by = &quot;SampleID&quot;
+Bin width defaults to 1/30 of the range of the data. Pick better value with
+`binwidth`.</code></pre>
 <p><img src="figure/051_AdaptedHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20List-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-1">
@@ -1325,32 +1280,6 @@ Marc Noguera-Julian
 </div>
 <div id="grouped-ati-duration" class="section level3">
 <h3>Grouped ATI Duration</h3>
-<pre class="r"><code>require(ggplot2)
-# patient_hla$SampleID
-# unique(variant_df$SampleID)
-
-variant_df %&gt;% 
-  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
-  dplyr::rowwise() %&gt;% 
-  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
-  group_by(SampleID) %&gt;% 
-  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
-  left_join(metadata_df) %&gt;% 
-   dplyr::rename(ATI_duration=ATI_duration_.12_.12) %&gt;% 
-  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
-  ggplot(.,aes(x=ATI_duration,y=n_HLA_mutations,color=ATI_duration))+
-    geom_boxplot()+
-    ggpubr::stat_compare_means(method = &quot;wilcox.test&quot;,label.x = 1.3,label.y = 15)+
-    theme_classic()+
-    #geom_jitter(shape=16, position=position_jitter(0.2))+
-    scale_color_manual(values=c(&quot;darkred&quot;, &quot;steelblue&quot;))+
-    ggtitle(&quot;(gag,pol,nef,vif) HLA-specific mutations vs ATI Duration&quot;,subtitle = &quot;Adapted and non-Adapted Mutations&quot;)+
-    theme(
-      plot.title = element_text(color=&quot;black&quot;, size=14, face=&quot;bold.italic&quot;),
-      axis.title.x = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;),
-      axis.title.y = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;)
-    )+
-    geom_dotplot(binaxis=&#39;y&#39;, stackdir=&#39;center&#39;, dotsize=0.8)+facet_wrap(~TreatmentGroup)</code></pre>
 <pre><code>Joining, by = &quot;SampleID&quot;
 Bin width defaults to 1/30 of the range of the data. Pick better value with
 `binwidth`.</code></pre>
@@ -1428,20 +1357,6 @@ Marc Noguera-Julian
 </div>
 <div id="numeric-ati-duration" class="section level3">
 <h3>Numeric ATI Duration</h3>
-<pre class="r"><code>require(ggplot2)
-# patient_hla$SampleID
-# unique(variant_df$SampleID)
-
-variant_df %&gt;% 
-  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
-  dplyr::rowwise() %&gt;% 
-  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
-  group_by(SampleID) %&gt;% 
-  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
-  left_join(metadata_df) %&gt;% 
-   dplyr::rename(ATI_duration=ATI.duration..weeks..) %&gt;% 
-  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
-  ggstatsplot::ggscatterstats(x=ATI_duration,y=n_HLA_mutations,title = &quot;ATI Duration(weeks)&quot;,type = &quot;nonparametric&quot;)+ggthemes::theme_clean()</code></pre>
 <pre><code>Joining, by = &quot;SampleID&quot;
 Registered S3 method overwritten by &#39;ggside&#39;: method from +.gg ggplot2
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
@@ -1487,35 +1402,6 @@ Marc Noguera-Julian
 </div>
 <div id="vs-goodnon-good-hla" class="section level3">
 <h3>vs Good/non-Good HLA</h3>
-<pre class="r"><code>require(ggplot2)
-# patient_hla$SampleID
-# unique(variant_df$SampleID)
-
-goodHLA_samples&lt;-c(&quot;Alx_12&quot;,&quot;Alx_24&quot;,&quot;Alx_40&quot;,&quot;Alx_17&quot;,&quot;Alx_02&quot;,&quot;Alx_39&quot;,&quot;Alx_23&quot;,&quot;Alx_26&quot;,&quot;Alx_37&quot;)
-variant_df %&gt;% 
-  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
-  dplyr::rowwise() %&gt;% 
-  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
-  group_by(SampleID) %&gt;% 
-  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
-  left_join(metadata_df) %&gt;% 
-   dplyr::rename(ATI_duration=ATI_duration_.12_.12) %&gt;% 
-  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
-  dplyr::rowwise() %&gt;% 
-  dplyr::mutate(good_HLA=ifelse(SampleID %in% goodHLA_samples,&quot;Good&quot;,&quot;Bad&quot;)) %&gt;% 
-  ggplot(.,aes(x=good_HLA,y=n_HLA_mutations,color=good_HLA))+
-    geom_boxplot()+
-    ggpubr::stat_compare_means(method = &quot;wilcox.test&quot;,label.x = 1.3,label.y = 15)+
-    theme_classic()+
-    #geom_jitter(shape=16, position=position_jitter(0.2))+
-    scale_color_manual(values=c(&quot;darkgreen&quot;, &quot;orange&quot;))+
-    ggtitle(&quot;(gag,pol,nef,vif) HLA-specific mutations vs ATI Duration&quot;,subtitle = &quot;Adapted and non-Adapted Mutations&quot;)+
-    theme(
-      plot.title = element_text(color=&quot;black&quot;, size=14, face=&quot;bold.italic&quot;),
-      axis.title.x = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;),
-      axis.title.y = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;)
-    )+
-    geom_dotplot(binaxis=&#39;y&#39;, stackdir=&#39;center&#39;, dotsize=0.8)</code></pre>
 <pre><code>Joining, by = &quot;SampleID&quot;
 Bin width defaults to 1/30 of the range of the data. Pick better value with
 `binwidth`.</code></pre>
@@ -1571,25 +1457,6 @@ Marc Noguera-Julian
 </div>
 <div id="correlation-of-hla-specific-mutatons-vs-fitness" class="section level3">
 <h3>Correlation of HLA-Specific mutatons vs Fitness</h3>
-<pre class="r"><code>require(ggplot2)
-# patient_hla$SampleID
-# unique(variant_df$SampleID)
-
-variant_df %&gt;% 
-  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
-  dplyr::rowwise() %&gt;% 
-  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
-  group_by(SampleID) %&gt;% 
-  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
-  left_join(metadata_df) %&gt;% 
-  dplyr::rename(ATI_duration=ATI_duration_.12_.12) %&gt;% 
-  dplyr::rename(Fitness=Fitness..of.autologous.virus..aut.NL43..) %&gt;% 
-  dplyr::filter(! is.na(Fitness)) %&gt;% 
-  dplyr::mutate(Fitness=as.numeric(Fitness)) %&gt;% 
-  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
-  dplyr::rowwise() %&gt;% 
-  dplyr::mutate(good_HLA=ifelse(SampleID %in% goodHLA_samples,&quot;Good&quot;,&quot;Bad&quot;)) %&gt;% 
-  ggstatsplot::ggscatterstats(x=Fitness,y=n_HLA_mutations,title = &quot;Fitness&quot;,type = &quot;nonparametric&quot;)+ggthemes::theme_clean()</code></pre>
 <pre><code>Joining, by = &quot;SampleID&quot;</code></pre>
 <pre><code>Warning in mask$eval_all_mutate(quo): NAs introduced by coercion</code></pre>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
@@ -1648,11 +1515,6 @@ Marc Noguera-Julian
 <div id="exclude-good-hla" class="section level2">
 <h2>Exclude Good HLA</h2>
 <p>Repeat the same analysis using only patients that do <em>NOT</em> have a good HLA(B2705, 5701, 1517 o 1503). Note that there is equal distribution of “good HLA” between Vacc and Pcbo groups.</p>
-<pre class="r"><code>goodHLA_samples&lt;-c(&quot;Alx_12&quot;,&quot;Alx_24&quot;,&quot;Alx_40&quot;,&quot;Alx_17&quot;,&quot;Alx_02&quot;,&quot;Alx_39&quot;,&quot;Alx_23&quot;,&quot;Alx_26&quot;,&quot;Alx_37&quot;)
-metadata_df &lt;- metadata_df %&gt;% 
-  dplyr::mutate(good_HLA=ifelse(SampleID %in% goodHLA_samples,&quot;Good&quot;,&quot;Bad&quot;))
-
-ggstatsplot::ggbarstats(good_HLA,Treatment.Vax.vs.Pbo,data = metadata_df)</code></pre>
 <p><img src="figure/051_AdaptedHLAMutations.Rmd/cross%20good%20HLA%20and%20groups-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-cross-good-HLA-and-groups-1">
@@ -1694,36 +1556,6 @@ Marc Noguera-Julian
 <div id="placebo-vs-vaccine" class="section level3">
 <h3>Placebo vs Vaccine</h3>
 <p>Apparently there are no significant difference between placebo and vaccine groups regarding the number of HLA-specific mutations, including both ADAPTED and non-ADAPTED.</p>
-<pre class="r"><code>require(ggplot2)
-# patient_hla$SampleID
-# unique(variant_df$SampleID)
-
-goodHLA_samples&lt;-c(&quot;Alx_12&quot;,&quot;Alx_24&quot;,&quot;Alx_40&quot;,&quot;Alx_17&quot;,&quot;Alx_02&quot;,&quot;Alx_39&quot;,&quot;Alx_23&quot;,&quot;Alx_26&quot;,&quot;Alx_37&quot;)
-variant_df&lt;-variant_df %&gt;% 
-  dplyr::filter(! SampleID %in% goodHLA_samples )
-
-variant_df %&gt;% 
-  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
-  dplyr::rowwise() %&gt;% 
-  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
-  group_by(SampleID) %&gt;% 
-  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
-  left_join(metadata_df) %&gt;% 
-  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
-
-  ggplot(.,aes(x=TreatmentGroup,y=n_HLA_mutations,color=TreatmentGroup))+
-    geom_boxplot()+
-    ggpubr::stat_compare_means(method = &quot;wilcox.test&quot;,label.x = 1.3,label.y = 25)+
-    theme_classic()+
-    #geom_jitter(shape=16, position=position_jitter(0.2))+
-    scale_color_manual(values=c(&quot;#E69F00&quot;, &quot;#56B4E9&quot;))+
-    ggtitle(&quot;(gag,pol,nef,vif) HLA-specific mutations&quot;,subtitle = &quot;Adapted and non-Adapted Mutations&quot;)+
-    theme(
-      plot.title = element_text(color=&quot;black&quot;, size=14, face=&quot;bold.italic&quot;),
-      axis.title.x = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;),
-      axis.title.y = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;)
-    )+
-    geom_dotplot(binaxis=&#39;y&#39;, stackdir=&#39;center&#39;, dotsize=0.8)</code></pre>
 <pre><code>Joining, by = &quot;SampleID&quot;
 Bin width defaults to 1/30 of the range of the data. Pick better value with
 `binwidth`.</code></pre>
@@ -1768,32 +1600,6 @@ Marc Noguera-Julian
 </div>
 <div id="grouped-ati-duration-1" class="section level3">
 <h3>Grouped ATI Duration</h3>
-<pre class="r"><code>require(ggplot2)
-# patient_hla$SampleID
-# unique(variant_df$SampleID)
-
-variant_df %&gt;% 
-  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
-  dplyr::rowwise() %&gt;% 
-  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
-  group_by(SampleID) %&gt;% 
-  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
-  left_join(metadata_df) %&gt;% 
-   dplyr::rename(ATI_duration=ATI_duration_.12_.12) %&gt;% 
-  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
-  ggplot(.,aes(x=ATI_duration,y=n_HLA_mutations,color=ATI_duration))+
-    geom_boxplot()+
-    ggpubr::stat_compare_means(method = &quot;wilcox.test&quot;,label.x = 1.3,label.y = 25)+
-    theme_classic()+
-    #geom_jitter(shape=16, position=position_jitter(0.2))+
-    scale_color_manual(values=c(&quot;darkred&quot;, &quot;steelblue&quot;))+
-    ggtitle(&quot;(gag,pol,nef,vif) HLA-specific mutations vs ATI Duration&quot;,subtitle = &quot;Adapted and non-Adapted Mutations&quot;)+
-    theme(
-      plot.title = element_text(color=&quot;black&quot;, size=14, face=&quot;bold.italic&quot;),
-      axis.title.x = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;),
-      axis.title.y = element_text(color=&quot;darkgrey&quot;, size=12, face=&quot;bold&quot;)
-    )+
-    geom_dotplot(binaxis=&#39;y&#39;, stackdir=&#39;center&#39;, dotsize=0.8)+facet_wrap(~TreatmentGroup)</code></pre>
 <pre><code>Joining, by = &quot;SampleID&quot;
 Bin width defaults to 1/30 of the range of the data. Pick better value with
 `binwidth`.</code></pre>
@@ -1838,20 +1644,6 @@ Marc Noguera-Julian
 </div>
 <div id="numeric-ati-duration-1" class="section level3">
 <h3>Numeric ATI Duration</h3>
-<pre class="r"><code>require(ggplot2)
-# patient_hla$SampleID
-# unique(variant_df$SampleID)
-
-variant_df %&gt;% 
-  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
-  dplyr::rowwise() %&gt;% 
-  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
-  group_by(SampleID) %&gt;% 
-  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
-  left_join(metadata_df) %&gt;% 
-   dplyr::rename(ATI_duration=ATI.duration..weeks..) %&gt;% 
-  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
-  ggstatsplot::ggscatterstats(x=ATI_duration,y=n_HLA_mutations,title = &quot;ATI Duration(weeks)&quot;,type = &quot;nonparametric&quot;)+ggthemes::theme_clean()</code></pre>
 <pre><code>Joining, by = &quot;SampleID&quot;
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
@@ -1896,25 +1688,6 @@ Marc Noguera-Julian
 </div>
 <div id="correlation-of-hla-specific-mutatons-vs-fitness-1" class="section level3">
 <h3>Correlation of HLA-Specific mutatons vs Fitness</h3>
-<pre class="r"><code>require(ggplot2)
-# patient_hla$SampleID
-# unique(variant_df$SampleID)
-
-variant_df %&gt;% 
-  left_join(patient_hla,by=&quot;SampleID&quot;) %&gt;% 
-  dplyr::rowwise() %&gt;% 
-  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %&gt;% 
-  group_by(SampleID) %&gt;% 
-  dplyr::summarise(total_within_HLA=sum(withinHLA)) %&gt;% 
-  left_join(metadata_df) %&gt;% 
-  dplyr::rename(ATI_duration=ATI_duration_.12_.12) %&gt;% 
-  dplyr::rename(Fitness=Fitness..of.autologous.virus..aut.NL43..) %&gt;% 
-  dplyr::filter(! is.na(Fitness)) %&gt;% 
-  dplyr::mutate(Fitness=as.numeric(Fitness)) %&gt;% 
-  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %&gt;% 
-  dplyr::rowwise() %&gt;% 
-  dplyr::mutate(good_HLA=ifelse(SampleID %in% goodHLA_samples,&quot;Good&quot;,&quot;Bad&quot;)) %&gt;% 
-  ggstatsplot::ggscatterstats(x=Fitness,y=n_HLA_mutations,title = &quot;Fitness&quot;,type = &quot;nonparametric&quot;)+ggthemes::theme_clean()</code></pre>
 <pre><code>Joining, by = &quot;SampleID&quot;</code></pre>
 <pre><code>Warning in mask$eval_all_mutate(quo): NAs introduced by coercion</code></pre>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
@@ -1964,7 +1737,6 @@ Marc Noguera-Julian
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
-<pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 4.1.1 (2021-08-10)
 Platform: x86_64-apple-darwin17.0 (64-bit)
 Running under: macOS Big Sur 10.16
