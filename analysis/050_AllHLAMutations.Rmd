@@ -229,6 +229,7 @@ variant_df %>%
 
 
 ```
+
 ### Good HLA
 
 ```{r calculate numbe of variants in patients HLA Mutations List vs HLA Goodness}
