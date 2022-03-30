@@ -1,5 +1,5 @@
 ---
-title: "Adapted and non-adapted HLA Mutations"
+title: "Adapted HLA Mutations Only"
 author: "Marc Noguera"
 date: "3/3/2022"
 output: html_document
@@ -200,7 +200,7 @@ variant_df %>%
     theme_classic()+
     #geom_jitter(shape=16, position=position_jitter(0.2))+
     scale_color_manual(values=c("darkred", "steelblue"))+
-    ggtitle("(gag,pol,nef,vif) HLA-specific mutations vs ATI Duration",subtitle = "Adapted and non-Adapted Mutations")+
+    ggtitle("(gag,pol,nef,vif) HLA-specific mutations vs ATI Duration",subtitle = "Adapted Mutations Only")+
     theme(
       plot.title = element_text(color="black", size=14, face="bold.italic"),
       axis.title.x = element_text(color="darkgrey", size=12, face="bold"),
@@ -260,7 +260,7 @@ variant_df %>%
     theme_classic()+
     #geom_jitter(shape=16, position=position_jitter(0.2))+
     scale_color_manual(values=c("darkgreen", "orange"))+
-    ggtitle("(gag,pol,nef,vif) HLA-specific mutations vs ATI Duration",subtitle = "Adapted and non-Adapted Mutations")+
+    ggtitle("(gag,pol,nef,vif) HLA-specific mutations vs ATI Duration",subtitle = "Adapted Mutations")+
     theme(
       plot.title = element_text(color="black", size=14, face="bold.italic"),
       axis.title.x = element_text(color="darkgrey", size=12, face="bold"),
@@ -313,7 +313,7 @@ ggstatsplot::ggbarstats(good_HLA,Treatment.Vax.vs.Pbo,data = metadata_df)
 
 ### Placebo vs Vaccine
 
-Apparently there are no significant difference between placebo and vaccine groups regarding the number of HLA-specific mutations, including both ADAPTED and non-ADAPTED.
+Apparently there are no significant difference between placebo and vaccine groups regarding the number of HLA-specific mutations, including only adapted mutations.
 
 ```{r calculate numbe of variants in patients HLA Mutations List exc_good_HLA}
 require(ggplot2)
@@ -339,7 +339,7 @@ variant_df %>%
     theme_classic()+
     #geom_jitter(shape=16, position=position_jitter(0.2))+
     scale_color_manual(values=c("#E69F00", "#56B4E9"))+
-    ggtitle("(gag,pol,nef,vif) HLA-specific mutations",subtitle = "Adapted and non-Adapted Mutations")+
+    ggtitle("(gag,pol,nef,vif) HLA-specific mutations",subtitle = "Adapted Mutations Only")+
     theme(
       plot.title = element_text(color="black", size=14, face="bold.italic"),
       axis.title.x = element_text(color="darkgrey", size=12, face="bold"),
@@ -373,7 +373,7 @@ variant_df %>%
     theme_classic()+
     #geom_jitter(shape=16, position=position_jitter(0.2))+
     scale_color_manual(values=c("darkred", "steelblue"))+
-    ggtitle("(gag,pol,nef,vif) HLA-specific mutations vs ATI Duration",subtitle = "Adapted and non-Adapted Mutations")+
+    ggtitle("(gag,pol,nef,vif) HLA-specific mutations vs ATI Duration",subtitle = "Adapted Mutations Only")+
     theme(
       plot.title = element_text(color="black", size=14, face="bold.italic"),
       axis.title.x = element_text(color="darkgrey", size=12, face="bold"),
