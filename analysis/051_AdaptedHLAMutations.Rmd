@@ -117,7 +117,7 @@ metadata_df<-xlsx::read.xlsx("../Pre-Treatment/Aelix-002_VG/data/raw/Dades_Aelix
 
 ## All HLAs
 
-### HLA-specifc mutations within each patient. 2D resolution and both adapted/nonadapted
+### HLA-specifc mutations within each patient. 2D resolution adapted only.
 
 For each patient we select the mutations that are specific to his/her HLA and create a patient-specific mutation string that contains all mutations.
 
