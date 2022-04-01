@@ -14,3 +14,4 @@ data/*xlsx
 data/*
 analysis/RisVac_Sieve/*
 data/VariantData_PASeq/*
+output/*xls
