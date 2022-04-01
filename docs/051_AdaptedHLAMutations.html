@@ -376,7 +376,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -385,7 +385,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -394,10 +394,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-03-30
+<strong>Last updated:</strong> 2022-04-01
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>HLA_Analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -413,12 +413,12 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -485,16 +485,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreed647cb49d4ccf19b80acfbee5a83ba01e389e1e6targetblankd647cb4a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/mnoguera/HLA_Analysis/tree/d647cb49d4ccf19b80acfbee5a83ba01e389e1e6" target="_blank">d647cb4</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomMicrobialGenomicsIrsicaixaOrgHLAAnalysistreea00d2c0f57ed8f4fedb5976afbba529824f3e33ftargetblanka00d2c0a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/tree/a00d2c0f57ed8f4fedb5976afbba529824f3e33f" target="_blank">a00d2c0</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcommnogueraHLAAnalysistreed647cb49d4ccf19b80acfbee5a83ba01e389e1e6targetblankd647cb4a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomMicrobialGenomicsIrsicaixaOrgHLAAnalysistreea00d2c0f57ed8f4fedb5976afbba529824f3e33ftargetblanka00d2c0a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/mnoguera/HLA_Analysis/tree/d647cb49d4ccf19b80acfbee5a83ba01e389e1e6" target="_blank">d647cb4</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/tree/a00d2c0f57ed8f4fedb5976afbba529824f3e33f" target="_blank">a00d2c0</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -511,6 +511,12 @@ Ignored files:
     Ignored:    data/Mostres_Aelix_PreART_HLA_20200930_noID. with 2 digit HLA reduction 3-2-2022_vMNJ_1.0.xlsx
     Ignored:    data/Optimal list 2022 with coordinates for ALX 002 analyses 3-2-2022 .xls
     Ignored:    data/VariantData_PASeq/
+
+Untracked files:
+    Untracked:  output/HLAMutations.xls
+
+Unstaged changes:
+    Modified:   analysis/051_AdaptedHLAMutations.Rmd
 
 </code></pre>
 <p>
@@ -551,10 +557,27 @@ Message
 <tbody>
 <tr>
 <td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/a00d2c0f57ed8f4fedb5976afbba529824f3e33f/docs/051_AdaptedHLAMutations.html" target="_blank">a00d2c0</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-30
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/d647cb49d4ccf19b80acfbee5a83ba01e389e1e6/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">d647cb4</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/d647cb49d4ccf19b80acfbee5a83ba01e389e1e6/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">d647cb4</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -571,7 +594,7 @@ workflowr::wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/e54cc3c4fbbdf72ed6ce95f0cc8b63d222396d7c/docs/051_AdaptedHLAMutations.html" target="_blank">e54cc3c</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/e54cc3c4fbbdf72ed6ce95f0cc8b63d222396d7c/docs/051_AdaptedHLAMutations.html" target="_blank">e54cc3c</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -588,7 +611,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/284346bbff8854d57898af04fa0a7de2e5b564e3/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">284346b</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/284346bbff8854d57898af04fa0a7de2e5b564e3/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">284346b</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -605,7 +628,7 @@ workflowr::wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/7d92347b364908d2b4ab548a343045b566867705/docs/051_AdaptedHLAMutations.html" target="_blank">7d92347</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/7d92347b364908d2b4ab548a343045b566867705/docs/051_AdaptedHLAMutations.html" target="_blank">7d92347</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -622,7 +645,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/b0d4cad9faa0e16ad2b1afd20b4fb276e46fa1c5/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">b0d4cad</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/b0d4cad9faa0e16ad2b1afd20b4fb276e46fa1c5/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">b0d4cad</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -639,7 +662,7 @@ wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/6ee95122ac73a4f7ee8c08b9407b6e47883ef061/docs/051_AdaptedHLAMutations.html" target="_blank">6ee9512</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/6ee95122ac73a4f7ee8c08b9407b6e47883ef061/docs/051_AdaptedHLAMutations.html" target="_blank">6ee9512</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -656,7 +679,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/69d7106e6a11360bab91abcf972418d0a40f5987/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">69d7106</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/69d7106e6a11360bab91abcf972418d0a40f5987/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">69d7106</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -673,7 +696,7 @@ wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/b6295817bac3b6841d42d9055efcee2b9f3c85c7/docs/051_AdaptedHLAMutations.html" target="_blank">b629581</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/b6295817bac3b6841d42d9055efcee2b9f3c85c7/docs/051_AdaptedHLAMutations.html" target="_blank">b629581</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -690,7 +713,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/db3f7d0ce50ae3313d312716eef15eb78a3c917f/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">db3f7d0</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/db3f7d0ce50ae3313d312716eef15eb78a3c917f/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">db3f7d0</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -707,7 +730,7 @@ wflow_publish(all = T)
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">cf0d08f</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">cf0d08f</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -724,7 +747,7 @@ add analysis with good alleles exclusion
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/cf0d08f373565665243243eef96e546f86173e8b/docs/051_AdaptedHLAMutations.html" target="_blank">cf0d08f</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/cf0d08f373565665243243eef96e546f86173e8b/docs/051_AdaptedHLAMutations.html" target="_blank">cf0d08f</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -741,7 +764,7 @@ add analysis with good alleles exclusion
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/66832950380238edd0a3dedd42f8ec8cab08f70e/docs/051_AdaptedHLAMutations.html" target="_blank">6683295</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/66832950380238edd0a3dedd42f8ec8cab08f70e/docs/051_AdaptedHLAMutations.html" target="_blank">6683295</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -758,7 +781,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/ac04d66f87f41c03364eee3ddd408e5e19779982/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">ac04d66</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/ac04d66f87f41c03364eee3ddd408e5e19779982/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">ac04d66</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -775,7 +798,7 @@ workflowr::wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/3cdbe6e0fb1f7344ae8f54c5894e4df4092ec204/docs/051_AdaptedHLAMutations.html" target="_blank">3cdbe6e</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/3cdbe6e0fb1f7344ae8f54c5894e4df4092ec204/docs/051_AdaptedHLAMutations.html" target="_blank">3cdbe6e</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -792,7 +815,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/2d2663e240e5aa08eb5c79deb534e4c434f78801/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">2d2663e</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/2d2663e240e5aa08eb5c79deb534e4c434f78801/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">2d2663e</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -809,7 +832,7 @@ workflowr::wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/c41c1103033047b7b8992eacae9c494c2095bd82/docs/051_AdaptedHLAMutations.html" target="_blank">c41c110</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/c41c1103033047b7b8992eacae9c494c2095bd82/docs/051_AdaptedHLAMutations.html" target="_blank">c41c110</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -826,7 +849,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/8838cac3ea4a6b997a42a72e04103a1f936dda64/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">8838cac</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/8838cac3ea4a6b997a42a72e04103a1f936dda64/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">8838cac</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -843,7 +866,7 @@ workflowr::wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/e2ba9db244203ebc4c4315dedaac07070afc640e/docs/051_AdaptedHLAMutations.html" target="_blank">e2ba9db</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/e2ba9db244203ebc4c4315dedaac07070afc640e/docs/051_AdaptedHLAMutations.html" target="_blank">e2ba9db</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -860,7 +883,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/3907918a7de88ccd7ab0607fc7d8e94b3f5eaf52/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">3907918</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/3907918a7de88ccd7ab0607fc7d8e94b3f5eaf52/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">3907918</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -877,7 +900,7 @@ workflowr::wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/152db046976a81d6518cda905a0edd7ba399df19/docs/051_AdaptedHLAMutations.html" target="_blank">152db04</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/152db046976a81d6518cda905a0edd7ba399df19/docs/051_AdaptedHLAMutations.html" target="_blank">152db04</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -894,7 +917,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/9e15149eb68b469257ad7e56285b2fb3e1eea39c/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">9e15149</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/9e15149eb68b469257ad7e56285b2fb3e1eea39c/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">9e15149</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -911,7 +934,7 @@ workflowr::wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/9e15149eb68b469257ad7e56285b2fb3e1eea39c/docs/051_AdaptedHLAMutations.html" target="_blank">9e15149</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/9e15149eb68b469257ad7e56285b2fb3e1eea39c/docs/051_AdaptedHLAMutations.html" target="_blank">9e15149</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -928,7 +951,7 @@ workflowr::wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/263e15ede4a2abf9cdfac5104b0d35fb23cffc65/docs/051_AdaptedHLAMutations.html" target="_blank">263e15e</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/263e15ede4a2abf9cdfac5104b0d35fb23cffc65/docs/051_AdaptedHLAMutations.html" target="_blank">263e15e</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -945,7 +968,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/11539948ce62be9bd211f9be9608cf8c22621025/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">1153994</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/11539948ce62be9bd211f9be9608cf8c22621025/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">1153994</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -962,7 +985,7 @@ workflowr::wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/6dc73f10cdbc5d8653f4c0a7f041e73a52ecb4ff/docs/051_AdaptedHLAMutations.html" target="_blank">6dc73f1</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/6dc73f10cdbc5d8653f4c0a7f041e73a52ecb4ff/docs/051_AdaptedHLAMutations.html" target="_blank">6dc73f1</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -979,7 +1002,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/06c23c37b871fc41f1c836dead1d92d082a76a89/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">06c23c3</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/06c23c37b871fc41f1c836dead1d92d082a76a89/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">06c23c3</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -996,7 +1019,7 @@ workflowr::wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/3a1d488889a7578e202c5399694c5b3f566bde4f/docs/051_AdaptedHLAMutations.html" target="_blank">3a1d488</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/3a1d488889a7578e202c5399694c5b3f566bde4f/docs/051_AdaptedHLAMutations.html" target="_blank">3a1d488</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1013,7 +1036,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/d033c3cc4f4e20678def2ff0ce8cf679c173745f/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">d033c3c</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/d033c3cc4f4e20678def2ff0ce8cf679c173745f/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">d033c3c</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1030,7 +1053,7 @@ workflowr::wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/eddda9556e4002ac9b179a55fb130e846ecd9baf/docs/051_AdaptedHLAMutations.html" target="_blank">eddda95</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/eddda9556e4002ac9b179a55fb130e846ecd9baf/docs/051_AdaptedHLAMutations.html" target="_blank">eddda95</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1047,7 +1070,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/521de8e32107c8be83412fb3bdf481364095a3b1/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">521de8e</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/521de8e32107c8be83412fb3bdf481364095a3b1/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">521de8e</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1064,7 +1087,7 @@ workflowr::wflow_publish(all = T)
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/2102c289b5620736495be345342b890ee3d989a6/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">2102c28</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/2102c289b5620736495be345342b890ee3d989a6/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">2102c28</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1081,7 +1104,7 @@ remove tables
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/2102c289b5620736495be345342b890ee3d989a6/docs/051_AdaptedHLAMutations.html" target="_blank">2102c28</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/2102c289b5620736495be345342b890ee3d989a6/docs/051_AdaptedHLAMutations.html" target="_blank">2102c28</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1098,7 +1121,7 @@ remove tables
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/f600d53c3a06f37e1be24473f9b1dba49472790f/docs/051_AdaptedHLAMutations.html" target="_blank">f600d53</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/f600d53c3a06f37e1be24473f9b1dba49472790f/docs/051_AdaptedHLAMutations.html" target="_blank">f600d53</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1115,7 +1138,7 @@ update htmls
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/c26cff7bab5e6b1b6260cd87b94988489c9b7191/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">c26cff7</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/c26cff7bab5e6b1b6260cd87b94988489c9b7191/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">c26cff7</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1132,7 +1155,7 @@ polish details
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/17c174c92e9f92eda0f9c1f824c91ed3f9edd347/docs/051_AdaptedHLAMutations.html" target="_blank">17c174c</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/17c174c92e9f92eda0f9c1f824c91ed3f9edd347/docs/051_AdaptedHLAMutations.html" target="_blank">17c174c</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1149,7 +1172,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/f9d9128976ad5a94196a0f97a924853aeee37802/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">f9d9128</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/f9d9128976ad5a94196a0f97a924853aeee37802/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">f9d9128</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1166,7 +1189,7 @@ workflowr::wflow_publish(all = T)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/f9d9128976ad5a94196a0f97a924853aeee37802/docs/051_AdaptedHLAMutations.html" target="_blank">f9d9128</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/f9d9128976ad5a94196a0f97a924853aeee37802/docs/051_AdaptedHLAMutations.html" target="_blank">f9d9128</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1183,7 +1206,7 @@ workflowr::wflow_publish(all = T)
 Rmd
 </td>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/b76c6f9ec944576cefba3c1eb573b59520a27cba/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">b76c6f9</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/b76c6f9ec944576cefba3c1eb573b59520a27cba/analysis/051_AdaptedHLAMutations.Rmd" target="_blank">b76c6f9</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1200,7 +1223,7 @@ init analysis (adapted and non-adapted)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/mnoguera/HLA_Analysis/b76c6f9ec944576cefba3c1eb573b59520a27cba/docs/051_AdaptedHLAMutations.html" target="_blank">b76c6f9</a>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/b76c6f9ec944576cefba3c1eb573b59520a27cba/docs/051_AdaptedHLAMutations.html" target="_blank">b76c6f9</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1279,7 +1302,14 @@ Attaching package: &#39;dplyr&#39;</code></pre>
 <div id="hla-specifc-mutations-within-each-patient.-2d-resolution-adapted-only." class="section level3">
 <h3>HLA-specifc mutations within each patient. 2D resolution adapted only.</h3>
 <p>For each patient we select the mutations that are specific to his/her HLA and create a patient-specific mutation string that contains all mutations.</p>
+</div>
+<div id="get-data-out" class="section level3">
+<h3>Get Data Out</h3>
+<pre><code>Joining, by = &quot;SampleID&quot;</code></pre>
 <p>For each patient, we take all AA variants and take each one of them as being present in the patients mutations_string, thus indicating whether each mutation is specific of the patients HLA. Then we sum up the number of mutations in each patients that are found in their HLA and integrate patient metadata regarding Placebo/Vaccine group to nicely plot and run test the stats (Wilcoxon Rank sum)</p>
+</div>
+<div id="placebo-vs-vaccine" class="section level3">
+<h3>Placebo vs Vaccine</h3>
 <p>There are significant differences between groups regarding the number of HLA-specific mutations when considering ADAPTED mutations only.</p>
 <pre><code>Loading required package: ggplot2</code></pre>
 <pre><code>Joining, by = &quot;SampleID&quot;
@@ -1310,7 +1340,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/eddda9556e4002ac9b179a55fb130e846ecd9baf/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List-1.png" target="_blank">eddda95</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/eddda9556e4002ac9b179a55fb130e846ecd9baf/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List-1.png" target="_blank">eddda95</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1321,7 +1351,7 @@ Marc Noguera-Julian
 </tr>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/f9d9128976ad5a94196a0f97a924853aeee37802/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List-1.png" target="_blank">f9d9128</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/f9d9128976ad5a94196a0f97a924853aeee37802/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List-1.png" target="_blank">f9d9128</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1332,7 +1362,7 @@ Marc Noguera-Julian
 </tr>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/b76c6f9ec944576cefba3c1eb573b59520a27cba/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List-1.png" target="_blank">b76c6f9</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/b76c6f9ec944576cefba3c1eb573b59520a27cba/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List-1.png" target="_blank">b76c6f9</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1376,7 +1406,18 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/c41c1103033047b7b8992eacae9c494c2095bd82/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration-1.png" target="_blank">c41c110</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/a00d2c0f57ed8f4fedb5976afbba529824f3e33f/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration-1.png" target="_blank">a00d2c0</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-30
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/c41c1103033047b7b8992eacae9c494c2095bd82/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration-1.png" target="_blank">c41c110</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1387,7 +1428,7 @@ Marc Noguera-Julian
 </tr>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/9e15149eb68b469257ad7e56285b2fb3e1eea39c/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration-1.png" target="_blank">9e15149</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/9e15149eb68b469257ad7e56285b2fb3e1eea39c/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration-1.png" target="_blank">9e15149</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1398,7 +1439,7 @@ Marc Noguera-Julian
 </tr>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/263e15ede4a2abf9cdfac5104b0d35fb23cffc65/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration-1.png" target="_blank">263e15e</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/263e15ede4a2abf9cdfac5104b0d35fb23cffc65/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration-1.png" target="_blank">263e15e</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1409,7 +1450,7 @@ Marc Noguera-Julian
 </tr>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/6dc73f10cdbc5d8653f4c0a7f041e73a52ecb4ff/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration-1.png" target="_blank">6dc73f1</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/6dc73f10cdbc5d8653f4c0a7f041e73a52ecb4ff/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration-1.png" target="_blank">6dc73f1</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1454,7 +1495,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/66832950380238edd0a3dedd42f8ec8cab08f70e/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs numeric ATI Duration-1.png" target="_blank">6683295</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/66832950380238edd0a3dedd42f8ec8cab08f70e/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs numeric ATI Duration-1.png" target="_blank">6683295</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1498,7 +1539,18 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/c41c1103033047b7b8992eacae9c494c2095bd82/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs HLA Goodness-1.png" target="_blank">c41c110</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/a00d2c0f57ed8f4fedb5976afbba529824f3e33f/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs HLA Goodness-1.png" target="_blank">a00d2c0</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-30
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/c41c1103033047b7b8992eacae9c494c2095bd82/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs HLA Goodness-1.png" target="_blank">c41c110</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1509,7 +1561,7 @@ Marc Noguera-Julian
 </tr>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/e2ba9db244203ebc4c4315dedaac07070afc640e/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs HLA Goodness-1.png" target="_blank">e2ba9db</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/e2ba9db244203ebc4c4315dedaac07070afc640e/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs HLA Goodness-1.png" target="_blank">e2ba9db</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1554,7 +1606,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/66832950380238edd0a3dedd42f8ec8cab08f70e/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations vs fitness-1.png" target="_blank">6683295</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/66832950380238edd0a3dedd42f8ec8cab08f70e/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations vs fitness-1.png" target="_blank">6683295</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1565,7 +1617,7 @@ Marc Noguera-Julian
 </tr>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/3cdbe6e0fb1f7344ae8f54c5894e4df4092ec204/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations vs fitness-1.png" target="_blank">3cdbe6e</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/3cdbe6e0fb1f7344ae8f54c5894e4df4092ec204/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations vs fitness-1.png" target="_blank">3cdbe6e</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1608,7 +1660,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/051_AdaptedHLAMutations.Rmd/cross good HLA and groups-1.png" target="_blank">cf0d08f</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/051_AdaptedHLAMutations.Rmd/cross good HLA and groups-1.png" target="_blank">cf0d08f</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1621,7 +1673,7 @@ Marc Noguera-Julian
 </table>
 </div>
 </div>
-<div id="placebo-vs-vaccine" class="section level3">
+<div id="placebo-vs-vaccine-1" class="section level3">
 <h3>Placebo vs Vaccine</h3>
 <p>Apparently there are no significant difference between placebo and vaccine groups regarding the number of HLA-specific mutations, including only adapted mutations.</p>
 <pre><code>Joining, by = &quot;SampleID&quot;
@@ -1652,7 +1704,18 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List exc_good_HLA-1.png" target="_blank">cf0d08f</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/a00d2c0f57ed8f4fedb5976afbba529824f3e33f/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List exc_good_HLA-1.png" target="_blank">a00d2c0</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-30
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List exc_good_HLA-1.png" target="_blank">cf0d08f</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1696,7 +1759,18 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration exc_good_HLA-1.png" target="_blank">cf0d08f</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/a00d2c0f57ed8f4fedb5976afbba529824f3e33f/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration exc_good_HLA-1.png" target="_blank">a00d2c0</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-30
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration exc_good_HLA-1.png" target="_blank">cf0d08f</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1740,7 +1814,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs numeric ATI Duration exc_good_HLA-1.png" target="_blank">cf0d08f</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs numeric ATI Duration exc_good_HLA-1.png" target="_blank">cf0d08f</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1785,7 +1859,7 @@ Date
 <tbody>
 <tr>
 <td>
-<a href="https://github.com/mnoguera/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations vs fitness exc_good_HLA-1.png" target="_blank">cf0d08f</a>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/051_AdaptedHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations vs fitness exc_good_HLA-1.png" target="_blank">cf0d08f</a>
 </td>
 <td>
 Marc Noguera-Julian
@@ -1820,45 +1894,43 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_3.3.5   dplyr_1.0.8     workflowr_1.7.0
+[1] ggplot2_3.3.5 dplyr_1.0.8  
 
 loaded via a namespace (and not attached):
   [1] nlme_3.1-155           fs_1.5.2               insight_0.16.0        
-  [4] httr_1.4.2             rprojroot_2.0.2        tools_4.1.1           
-  [7] backports_1.4.1        bslib_0.3.1            utf8_1.2.2            
- [10] R6_2.5.1               statsExpressions_1.3.0 mgcv_1.8-39           
- [13] DBI_1.1.2              colorspace_2.0-3       withr_2.5.0           
- [16] tidyselect_1.1.2       processx_3.5.2         compiler_4.1.1        
- [19] git2r_0.30.1           performance_0.8.0      cli_3.2.0             
- [22] prismatic_1.1.0        labeling_0.4.2         bayestestR_0.11.5     
- [25] sass_0.4.0             scales_1.1.1           mvtnorm_1.1-3         
- [28] pbapply_1.5-0          mc2d_0.1-21            callr_3.7.0           
- [31] stringr_1.4.0          digest_0.6.29          rmarkdown_2.13        
- [34] WRS2_1.1-3             pkgconfig_2.0.3        htmltools_0.5.2       
- [37] fastmap_1.1.0          highr_0.9              ggthemes_4.2.4        
- [40] rlang_1.0.2            rstudioapi_0.13        jquerylib_0.1.4       
- [43] farver_2.1.0           generics_0.1.2         jsonlite_1.8.0        
- [46] gtools_3.9.2           xlsx_0.6.5             car_3.0-12            
- [49] magrittr_2.0.2         Matrix_1.4-0           parameters_0.17.0     
- [52] patchwork_1.1.1        Rcpp_1.0.8.3           munsell_0.5.0         
- [55] fansi_1.0.2            abind_1.4-5            lifecycle_1.0.1       
- [58] stringi_1.7.6          whisker_0.4            yaml_2.3.5            
- [61] carData_3.0-5          MASS_7.3-55            plyr_1.8.6            
- [64] grid_4.1.1             paletteer_1.4.0        parallel_4.1.1        
- [67] gdata_2.18.0           promises_1.2.0.1       crayon_1.5.0          
- [70] lattice_0.20-45        splines_4.1.1          xlsxjars_0.6.1        
- [73] zeallot_0.1.0          knitr_1.37             ps_1.6.0              
- [76] pillar_1.7.0           ggpubr_0.4.0           ggsignif_0.6.3        
- [79] effectsize_0.6.0.1     glue_1.6.2             evaluate_0.15         
- [82] getPass_0.2-2          data.table_1.14.2      vctrs_0.3.8           
- [85] httpuv_1.6.5           MatrixModels_0.5-0     BayesFactor_0.9.12-4.3
- [88] gtable_0.3.0           purrr_0.3.4            tidyr_1.2.0           
- [91] rematch2_2.1.2         reshape_0.8.8          assertthat_0.2.1      
- [94] datawizard_0.3.0       xfun_0.30              correlation_0.8.0     
- [97] broom_0.7.12           ggside_0.2.0           coda_0.19-4           
-[100] rstatix_0.7.0          later_1.3.0            tibble_3.1.6          
-[103] rJava_1.0-6            ggstatsplot_0.9.1      ellipsis_0.3.2        
-[106] here_1.0.1            </code></pre>
+  [4] rprojroot_2.0.2        tools_4.1.1            backports_1.4.1       
+  [7] bslib_0.3.1            utf8_1.2.2             R6_2.5.1              
+ [10] statsExpressions_1.3.0 DBI_1.1.2              mgcv_1.8-39           
+ [13] colorspace_2.0-3       withr_2.5.0            tidyselect_1.1.2      
+ [16] compiler_4.1.1         git2r_0.30.1           performance_0.8.0     
+ [19] cli_3.2.0              prismatic_1.1.0        labeling_0.4.2        
+ [22] bayestestR_0.11.5      sass_0.4.0             scales_1.1.1          
+ [25] mvtnorm_1.1-3          pbapply_1.5-0          mc2d_0.1-21           
+ [28] stringr_1.4.0          digest_0.6.29          rmarkdown_2.13        
+ [31] WRS2_1.1-3             pkgconfig_2.0.3        htmltools_0.5.2       
+ [34] fastmap_1.1.0          highr_0.9              rlang_1.0.2           
+ [37] ggthemes_4.2.4         rstudioapi_0.13        jquerylib_0.1.4       
+ [40] farver_2.1.0           generics_0.1.2         jsonlite_1.8.0        
+ [43] gtools_3.9.2           xlsx_0.6.5             car_3.0-12            
+ [46] magrittr_2.0.2         Matrix_1.4-0           parameters_0.17.0     
+ [49] patchwork_1.1.1        Rcpp_1.0.8.3           munsell_0.5.0         
+ [52] fansi_1.0.2            abind_1.4-5            lifecycle_1.0.1       
+ [55] stringi_1.7.6          whisker_0.4            yaml_2.3.5            
+ [58] carData_3.0-5          MASS_7.3-55            plyr_1.8.6            
+ [61] grid_4.1.1             paletteer_1.4.0        parallel_4.1.1        
+ [64] gdata_2.18.0           promises_1.2.0.1       crayon_1.5.0          
+ [67] lattice_0.20-45        splines_4.1.1          xlsxjars_0.6.1        
+ [70] zeallot_0.1.0          knitr_1.37             pillar_1.7.0          
+ [73] ggpubr_0.4.0           ggsignif_0.6.3         effectsize_0.6.0.1    
+ [76] glue_1.6.2             evaluate_0.15          data.table_1.14.2     
+ [79] vctrs_0.3.8            httpuv_1.6.5           MatrixModels_0.5-0    
+ [82] BayesFactor_0.9.12-4.3 gtable_0.3.0           purrr_0.3.4           
+ [85] tidyr_1.2.0            rematch2_2.1.2         reshape_0.8.8         
+ [88] assertthat_0.2.1       datawizard_0.3.0       xfun_0.30             
+ [91] correlation_0.8.0      broom_0.7.12           ggside_0.2.0          
+ [94] coda_0.19-4            rstatix_0.7.0          later_1.3.0           
+ [97] tibble_3.1.6           rJava_1.0-6            ggstatsplot_0.9.1     
+[100] workflowr_1.7.0        ellipsis_0.3.2         here_1.0.1            </code></pre>
 </div>
 </div>
 </div>

@@ -142,7 +142,26 @@ for (patient in (patient_hla$SampleID)){
 ```
 
 
+### Get Data Out
+
+```{r export data}
+variant_df %>% 
+  left_join(patient_hla,by="SampleID") %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(withinHLA=ifelse(grepl(pattern=Mutation,x = mutation_string),1,0)) %>% 
+  group_by(SampleID) %>% 
+  dplyr::summarise(total_within_HLA=sum(withinHLA)) %>% 
+  left_join(metadata_df) %>% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %>% 
+  xlsx::write.xlsx(.,file=paste0(here::here(),"/output/HLAMutations.xls"),sheetName = "AdaptedHLAMutations",append=T)
+  
+
+
+```
+
 For each patient, we take all AA variants and take each one of them as being present in the patients mutations_string, thus indicating whether each mutation is specific of the patients HLA. Then we sum up the number of mutations in each patients that are found in their HLA and integrate patient metadata regarding Placebo/Vaccine group to nicely plot and run test the stats (Wilcoxon Rank sum)
+
+### Placebo vs Vaccine
 
 There are significant differences between groups regarding the number of HLA-specific mutations when considering ADAPTED mutations only.
 
