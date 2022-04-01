@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Marc Noguera" />
+
+
+<title>Adapted and non-adapted HLA Mutations</title>
+
+<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">HLA_Analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="050_AllHLAMutations.html">All HLA Mutations</a>
+</li>
+<li>
+  <a href="051_AdaptedHLAMutations.html">Adapted HLA Mutations</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/mnoguera/HLA_Analysis">
+    <span class="fab fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Adapted and non-adapted HLA Mutations</h1>
+<h4 class="author">Marc Noguera</h4>
+<h4 class="date">3/3/2022</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2022-04-01
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>HLA_Analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version 1.7.0). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20220303code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20220303)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20220303code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20220303)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomMicrobialGenomicsIrsicaixaOrgHLAAnalysistreebb898baab28c90ea811994826e833f406d17eee3targetblankbb898baa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/tree/bb898baab28c90ea811994826e833f406d17eee3" target="_blank">bb898ba</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomMicrobialGenomicsIrsicaixaOrgHLAAnalysistreebb898baab28c90ea811994826e833f406d17eee3targetblankbb898baa" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/tree/bb898baab28c90ea811994826e833f406d17eee3" target="_blank">bb898ba</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+    Ignored:    analysis/.DS_Store
+    Ignored:    analysis/RisVac_Sieve/
+    Ignored:    data/HLA footprints for AELIX002 analyses without B15 imprints 3-2-2022.xls
+    Ignored:    data/Mostres_Aelix_PreART_HLA_20200930_noID. with 2 digit HLA reduction 3-2-2022.xlsx
+    Ignored:    data/Mostres_Aelix_PreART_HLA_20200930_noID. with 2 digit HLA reduction 3-2-2022_vMNJ_1.0.csv
+    Ignored:    data/Mostres_Aelix_PreART_HLA_20200930_noID. with 2 digit HLA reduction 3-2-2022_vMNJ_1.0.xlsx
+    Ignored:    data/Optimal list 2022 with coordinates for ALX 002 analyses 3-2-2022 .xls
+    Ignored:    data/VariantData_PASeq/
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/050_AllHLAMutations.Rmd</code>) and HTML (<code>docs/050_AllHLAMutations.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/bb898baab28c90ea811994826e833f406d17eee3/analysis/050_AllHLAMutations.Rmd" target="_blank">bb898ba</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-04-01
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/bb898baab28c90ea811994826e833f406d17eee3/docs/050_AllHLAMutations.html" target="_blank">bb898ba</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-04-01
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/a8cb5c8b0e43f49ff7c25e57a726563a38873fa8/docs/050_AllHLAMutations.html" target="_blank">a8cb5c8</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-04-01
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/e1d7b09308d82ab769baca05de37c0fc32562366/analysis/050_AllHLAMutations.Rmd" target="_blank">e1d7b09</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-04-01
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/7d92347b364908d2b4ab548a343045b566867705/docs/050_AllHLAMutations.html" target="_blank">7d92347</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/b0d4cad9faa0e16ad2b1afd20b4fb276e46fa1c5/analysis/050_AllHLAMutations.Rmd" target="_blank">b0d4cad</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+<td>
+wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/analysis/050_AllHLAMutations.Rmd" target="_blank">cf0d08f</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+<td>
+add analysis with good alleles exclusion
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/cf0d08f373565665243243eef96e546f86173e8b/docs/050_AllHLAMutations.html" target="_blank">cf0d08f</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+<td>
+add analysis with good alleles exclusion
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/54eba3436afa503a06fa2352cb4d5154b6794f8c/docs/050_AllHLAMutations.html" target="_blank">54eba34</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/b74e5304a101f81f7192b4724ef0b9dbfed658b9/analysis/050_AllHLAMutations.Rmd" target="_blank">b74e530</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/66832950380238edd0a3dedd42f8ec8cab08f70e/docs/050_AllHLAMutations.html" target="_blank">6683295</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-13
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/ac04d66f87f41c03364eee3ddd408e5e19779982/analysis/050_AllHLAMutations.Rmd" target="_blank">ac04d66</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-13
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/3cdbe6e0fb1f7344ae8f54c5894e4df4092ec204/docs/050_AllHLAMutations.html" target="_blank">3cdbe6e</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/2d2663e240e5aa08eb5c79deb534e4c434f78801/analysis/050_AllHLAMutations.Rmd" target="_blank">2d2663e</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/e2ba9db244203ebc4c4315dedaac07070afc640e/docs/050_AllHLAMutations.html" target="_blank">e2ba9db</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/3907918a7de88ccd7ab0607fc7d8e94b3f5eaf52/analysis/050_AllHLAMutations.Rmd" target="_blank">3907918</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/152db046976a81d6518cda905a0edd7ba399df19/docs/050_AllHLAMutations.html" target="_blank">152db04</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/9e15149eb68b469257ad7e56285b2fb3e1eea39c/analysis/050_AllHLAMutations.Rmd" target="_blank">9e15149</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/9e15149eb68b469257ad7e56285b2fb3e1eea39c/docs/050_AllHLAMutations.html" target="_blank">9e15149</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/263e15ede4a2abf9cdfac5104b0d35fb23cffc65/docs/050_AllHLAMutations.html" target="_blank">263e15e</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/11539948ce62be9bd211f9be9608cf8c22621025/analysis/050_AllHLAMutations.Rmd" target="_blank">1153994</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/6dc73f10cdbc5d8653f4c0a7f041e73a52ecb4ff/docs/050_AllHLAMutations.html" target="_blank">6dc73f1</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/06c23c37b871fc41f1c836dead1d92d082a76a89/analysis/050_AllHLAMutations.Rmd" target="_blank">06c23c3</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/eddda9556e4002ac9b179a55fb130e846ecd9baf/docs/050_AllHLAMutations.html" target="_blank">eddda95</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/521de8e32107c8be83412fb3bdf481364095a3b1/analysis/050_AllHLAMutations.Rmd" target="_blank">521de8e</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/2102c289b5620736495be345342b890ee3d989a6/analysis/050_AllHLAMutations.Rmd" target="_blank">2102c28</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+remove tables
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/2102c289b5620736495be345342b890ee3d989a6/docs/050_AllHLAMutations.html" target="_blank">2102c28</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+remove tables
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/f600d53c3a06f37e1be24473f9b1dba49472790f/docs/050_AllHLAMutations.html" target="_blank">f600d53</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+update htmls
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/c26cff7bab5e6b1b6260cd87b94988489c9b7191/analysis/050_AllHLAMutations.Rmd" target="_blank">c26cff7</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+polish details
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/17c174c92e9f92eda0f9c1f824c91ed3f9edd347/docs/050_AllHLAMutations.html" target="_blank">17c174c</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/f9d9128976ad5a94196a0f97a924853aeee37802/analysis/050_AllHLAMutations.Rmd" target="_blank">f9d9128</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/f9d9128976ad5a94196a0f97a924853aeee37802/docs/050_AllHLAMutations.html" target="_blank">f9d9128</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+workflowr::wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/b76c6f9ec944576cefba3c1eb573b59520a27cba/analysis/050_AllHLAMutations.Rmd" target="_blank">b76c6f9</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+init analysis (adapted and non-adapted)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/b76c6f9ec944576cefba3c1eb573b59520a27cba/docs/050_AllHLAMutations.html" target="_blank">b76c6f9</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+init analysis (adapted and non-adapted)
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="hla-specific-all-mutations" class="section level1">
+<h1>HLA Specific / All Mutations</h1>
+<div id="import-data" class="section level2">
+<h2>Import Data</h2>
+<p>Need to import data from different sources:</p>
+<ul>
+<li>HLA-Specific escape mutation list. This excel sheet contains information on mutations that are specific to each of HLA (2-digit resolution)</li>
+<li>HLA from patients: Each patient has a specifc HLA setup composed of HLA-A, HLA-B and HLA-C, each of them consisting of two alleles.</li>
+<li>Patient-Specific Variant list at the amino acid level, as obtained from Illumina Sequencing / PASeq.</li>
+</ul>
+<div id="hla-specific-mutations" class="section level3">
+<h3>HLA-Specific mutations</h3>
+<p>This excel sheet contains information on mutations that are specific to each of HLA (2-digit resolution). Containt the following relevant fields:</p>
+<ul>
+<li>Protein: Short code for HIV protein.</li>
+<li>HLA: 2-digit HLA of that specific mutation.</li>
+<li>Codon / position_in_protein: Codon-based coordinate of that mutation within Protein.</li>
+<li>AAHXB2/AminoAcid: Reference and variant amino acid.</li>
+<li>EPITOPE_SEQUENCE: Is the mutation within a epitope sequence? (YES/NO)</li>
+<li>IN.OUT.vaccine: Is the mutation within the vaccines immunogen?</li>
+</ul>
+<p>We di several things with this data:</p>
+<ul>
+<li>Generate a Mutation field in the shape of “GAG:T454R”</li>
+<li>Specify HXB2 start and end coordinates, separately, this may be handy for cooridnate based analysis.</li>
+<li>Generate a mutation_string new field, that contains all mutations for each HLA. This is not elegant but may be practical.</li>
+</ul>
+<pre><code>Loading required package: dplyr</code></pre>
+<pre><code>Warning: package &#39;dplyr&#39; was built under R version 4.1.2</code></pre>
+<pre><code>
+Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>The following objects are masked from &#39;package:stats&#39;:
+
+    filter, lag</code></pre>
+<pre><code>The following objects are masked from &#39;package:base&#39;:
+
+    intersect, setdiff, setequal, union</code></pre>
+<pre><code>Loading required package: gdata</code></pre>
+<pre><code>gdata: read.xls support for &#39;XLS&#39; (Excel 97-2004) files ENABLED.</code></pre>
+<pre><code></code></pre>
+<pre><code>gdata: read.xls support for &#39;XLSX&#39; (Excel 2007+) files ENABLED.</code></pre>
+<pre><code>
+Attaching package: &#39;gdata&#39;</code></pre>
+<pre><code>The following objects are masked from &#39;package:dplyr&#39;:
+
+    combine, first, last</code></pre>
+<pre><code>The following object is masked from &#39;package:stats&#39;:
+
+    nobs</code></pre>
+<pre><code>The following object is masked from &#39;package:utils&#39;:
+
+    object.size</code></pre>
+<pre><code>The following object is masked from &#39;package:base&#39;:
+
+    startsWith</code></pre>
+</div>
+<div id="patients-hla" class="section level3">
+<h3>Patients HLA</h3>
+<p>We have an excel sheet that has been manually edited, containing 4D and 2D HLA information for each patient(SAmpleID). We basically add A/B/C to each allele to be able to merge downstream</p>
+</div>
+<div id="patients-variants" class="section level3">
+<h3>Patients Variants</h3>
+<p>We obtain AA variants from PASeq analysis using self-consensus and codon-level variant calling only on pol, gag, vif and nef. We do several things:</p>
+<ul>
+<li>Keep those above 20% of the viral population.</li>
+<li>Remove Deletion</li>
+<li>All protein names to uppercase.</li>
+<li>Add protein names to match the format above(“GAG:T454R”)</li>
+<li>Change sample names to match format above.</li>
+</ul>
+</div>
+</div>
+<div id="all-hlas" class="section level2">
+<h2>All HLAs</h2>
+<div id="hla-specific-2d-all-mutations" class="section level3">
+<h3>HLA-specific | 2D | All mutations</h3>
+<p>For each patient we select the mutations that are specific to his/her HLA and create a patient-specific mutation string that contains all mutations.</p>
+<p>For each patient, we take all AA variants and take each one of them as being present in the patients mutations_string, thus indicating whether each mutation is specific of the patients HLA. Then we sum up the number of mutations in each patients that are found in their HLA and integrate patient metadata regarding Placebo/Vaccine group to nicely plot and run test the stats (Wilcoxon Rank sum).</p>
+</div>
+<div id="get-data-out" class="section level3">
+<h3>Get Data Out</h3>
+<pre><code>Joining, by = &quot;SampleID&quot;</code></pre>
+</div>
+<div id="placebo-vs-vaccine" class="section level3">
+<h3>Placebo vs Vaccine</h3>
+<p>Apparently there are no significant difference between placebo and vaccine groups regarding the number of HLA-specific mutations, including both ADAPTED and non-ADAPTED.</p>
+<pre><code>Loading required package: ggplot2</code></pre>
+<pre><code>Joining, by = &quot;SampleID&quot;
+Bin width defaults to 1/30 of the range of the data. Pick better value with
+`binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20List-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-1">
+Past versions of "calculate numbe of variants in patients HLA Mutations List-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/eddda9556e4002ac9b179a55fb130e846ecd9baf/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List-1.png" target="_blank">eddda95</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/f9d9128976ad5a94196a0f97a924853aeee37802/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List-1.png" target="_blank">f9d9128</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/b76c6f9ec944576cefba3c1eb573b59520a27cba/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List-1.png" target="_blank">b76c6f9</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="grouped-ati-duration" class="section level3">
+<h3>Grouped ATI Duration</h3>
+<pre><code>Joining, by = &quot;SampleID&quot;
+Bin width defaults to 1/30 of the range of the data. Pick better value with
+`binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20List%20vs%20ATI%20Duration-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-vs-ATI-Duration-1">
+Past versions of "calculate numbe of variants in patients HLA Mutations List vs ATI Duration-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-vs-ATI-Duration-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/9e15149eb68b469257ad7e56285b2fb3e1eea39c/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration-1.png" target="_blank">9e15149</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/263e15ede4a2abf9cdfac5104b0d35fb23cffc65/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration-1.png" target="_blank">263e15e</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/6dc73f10cdbc5d8653f4c0a7f041e73a52ecb4ff/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration-1.png" target="_blank">6dc73f1</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="numeric-ati-duration" class="section level3">
+<h3>Numeric ATI Duration</h3>
+<pre><code>Joining, by = &quot;SampleID&quot;
+Registered S3 method overwritten by &#39;ggside&#39;: method from +.gg ggplot2
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20List%20vs%20numeric%20ATI%20Duration-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-vs-numeric-ATI-Duration-1">
+Past versions of "calculate numbe of variants in patients HLA Mutations List vs numeric ATI Duration-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-vs-numeric-ATI-Duration-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/66832950380238edd0a3dedd42f8ec8cab08f70e/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs numeric ATI Duration-1.png" target="_blank">6683295</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="vs-goodnon-good-hla" class="section level3">
+<h3>vs Good/non-Good HLA</h3>
+<pre><code>Joining, by = &quot;SampleID&quot;
+Bin width defaults to 1/30 of the range of the data. Pick better value with
+`binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20List%20vs%20HLA%20Goodness-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-vs-HLA-Goodness-1">
+Past versions of "calculate numbe of variants in patients HLA Mutations List vs HLA Goodness-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-vs-HLA-Goodness-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/e2ba9db244203ebc4c4315dedaac07070afc640e/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs HLA Goodness-1.png" target="_blank">e2ba9db</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="correlation-of-hla-specific-mutatons-vs-fitness" class="section level3">
+<h3>Correlation of HLA-Specific mutatons vs Fitness</h3>
+<pre><code>Joining, by = &quot;SampleID&quot;</code></pre>
+<pre><code>Warning in mask$eval_all_mutate(quo): NAs introduced by coercion</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20vs%20fitness-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-vs-fitness-1">
+Past versions of "calculate numbe of variants in patients HLA Mutations vs fitness-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-vs-fitness-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/66832950380238edd0a3dedd42f8ec8cab08f70e/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations vs fitness-1.png" target="_blank">6683295</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-13
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/3cdbe6e0fb1f7344ae8f54c5894e4df4092ec204/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations vs fitness-1.png" target="_blank">3cdbe6e</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="exclude-good-hla" class="section level2">
+<h2>Exclude Good HLA</h2>
+<p>Repeat the same analysis using only patients that do <em>NOT</em> have a good HLA(B2705, 5701, 1517 o 1503). Note that there is equal distribution of “good HLA” between Vacc and Pcbo groups.</p>
+<p><img src="figure/050_AllHLAMutations.Rmd/cross%20good%20HLA%20and%20groups-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-cross-good-HLA-and-groups-1">
+Past versions of "cross good HLA and groups-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-cross-good-HLA-and-groups-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/050_AllHLAMutations.Rmd/cross good HLA and groups-1.png" target="_blank">cf0d08f</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="placebo-vs-vaccine-1" class="section level3">
+<h3>Placebo vs Vaccine</h3>
+<p>Apparently there are no significant difference between placebo and vaccine groups regarding the number of HLA-specific mutations, including both ADAPTED and non-ADAPTED.</p>
+<pre><code>Joining, by = &quot;SampleID&quot;
+Bin width defaults to 1/30 of the range of the data. Pick better value with
+`binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20List%20exc_good_HLA-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-exc_good_HLA-1">
+Past versions of "calculate numbe of variants in patients HLA Mutations List exc_good_HLA-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-exc_good_HLA-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List exc_good_HLA-1.png" target="_blank">cf0d08f</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="grouped-ati-duration-1" class="section level3">
+<h3>Grouped ATI Duration</h3>
+<pre><code>Joining, by = &quot;SampleID&quot;
+Bin width defaults to 1/30 of the range of the data. Pick better value with
+`binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20List%20vs%20ATI%20Duration%20exc_good_HLA-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-vs-ATI-Duration-exc_good_HLA-1">
+Past versions of "calculate numbe of variants in patients HLA Mutations List vs ATI Duration exc_good_HLA-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-vs-ATI-Duration-exc_good_HLA-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs ATI Duration exc_good_HLA-1.png" target="_blank">cf0d08f</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="numeric-ati-duration-1" class="section level3">
+<h3>Numeric ATI Duration</h3>
+<pre><code>Joining, by = &quot;SampleID&quot;
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20List%20vs%20numeric%20ATI%20Duration%20exc_good_HLA-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-vs-numeric-ATI-Duration-exc_good_HLA-1">
+Past versions of "calculate numbe of variants in patients HLA Mutations List vs numeric ATI Duration exc_good_HLA-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-List-vs-numeric-ATI-Duration-exc_good_HLA-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations List vs numeric ATI Duration exc_good_HLA-1.png" target="_blank">cf0d08f</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="correlation-of-hla-specific-mutatons-vs-fitness-1" class="section level3">
+<h3>Correlation of HLA-Specific mutatons vs Fitness</h3>
+<pre><code>Joining, by = &quot;SampleID&quot;</code></pre>
+<pre><code>Warning in mask$eval_all_mutate(quo): NAs introduced by coercion</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="figure/050_AllHLAMutations.Rmd/calculate%20numbe%20of%20variants%20in%20patients%20HLA%20Mutations%20vs%20fitness%20exc_good_HLA-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-vs-fitness-exc_good_HLA-1">
+Past versions of "calculate numbe of variants in patients HLA Mutations vs fitness exc_good_HLA-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-calculate-numbe-of-variants-in-patients-HLA-Mutations-vs-fitness-exc_good_HLA-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/MicrobialGenomics-IrsicaixaOrg/HLA_Analysis/blob/cf0d08f373565665243243eef96e546f86173e8b/docs/figure/050_AllHLAMutations.Rmd/calculate numbe of variants in patients HLA Mutations vs fitness exc_good_HLA-1.png" target="_blank">cf0d08f</a>
+</td>
+<td>
+Marc Noguera-Julian
+</td>
+<td>
+2022-03-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>sessionInfo()</p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre><code>R version 4.1.1 (2021-08-10)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Big Sur 10.16
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] ggplot2_3.3.5   gdata_2.18.0    dplyr_1.0.8     workflowr_1.7.0
+
+loaded via a namespace (and not attached):
+  [1] nlme_3.1-155           fs_1.5.2               insight_0.16.0        
+  [4] httr_1.4.2             rprojroot_2.0.2        tools_4.1.1           
+  [7] backports_1.4.1        bslib_0.3.1            utf8_1.2.2            
+ [10] R6_2.5.1               statsExpressions_1.3.0 mgcv_1.8-39           
+ [13] DBI_1.1.2              colorspace_2.0-3       withr_2.5.0           
+ [16] tidyselect_1.1.2       processx_3.5.2         compiler_4.1.1        
+ [19] git2r_0.30.1           performance_0.8.0      cli_3.2.0             
+ [22] prismatic_1.1.0        labeling_0.4.2         bayestestR_0.11.5     
+ [25] sass_0.4.0             scales_1.1.1           mvtnorm_1.1-3         
+ [28] pbapply_1.5-0          mc2d_0.1-21            callr_3.7.0           
+ [31] stringr_1.4.0          digest_0.6.29          rmarkdown_2.13        
+ [34] WRS2_1.1-3             pkgconfig_2.0.3        htmltools_0.5.2       
+ [37] fastmap_1.1.0          highr_0.9              ggthemes_4.2.4        
+ [40] rlang_1.0.2            rstudioapi_0.13        jquerylib_0.1.4       
+ [43] farver_2.1.0           generics_0.1.2         jsonlite_1.8.0        
+ [46] gtools_3.9.2           xlsx_0.6.5             car_3.0-12            
+ [49] magrittr_2.0.2         Matrix_1.4-0           parameters_0.17.0     
+ [52] patchwork_1.1.1        Rcpp_1.0.8.3           munsell_0.5.0         
+ [55] fansi_1.0.2            abind_1.4-5            lifecycle_1.0.1       
+ [58] stringi_1.7.6          whisker_0.4            yaml_2.3.5            
+ [61] carData_3.0-5          MASS_7.3-55            plyr_1.8.6            
+ [64] grid_4.1.1             paletteer_1.4.0        parallel_4.1.1        
+ [67] promises_1.2.0.1       crayon_1.5.0           lattice_0.20-45       
+ [70] splines_4.1.1          xlsxjars_0.6.1         zeallot_0.1.0         
+ [73] knitr_1.37             ps_1.6.0               pillar_1.7.0          
+ [76] ggpubr_0.4.0           ggsignif_0.6.3         effectsize_0.6.0.1    
+ [79] glue_1.6.2             evaluate_0.15          getPass_0.2-2         
+ [82] data.table_1.14.2      vctrs_0.3.8            httpuv_1.6.5          
+ [85] MatrixModels_0.5-0     BayesFactor_0.9.12-4.3 gtable_0.3.0          
+ [88] purrr_0.3.4            tidyr_1.2.0            rematch2_2.1.2        
+ [91] reshape_0.8.8          assertthat_0.2.1       datawizard_0.3.0      
+ [94] xfun_0.30              correlation_0.8.0      broom_0.7.12          
+ [97] ggside_0.2.0           coda_0.19-4            rstatix_0.7.0         
+[100] later_1.3.0            tibble_3.1.6           rJava_1.0-6           
+[103] ggstatsplot_0.9.1      ellipsis_0.3.2         here_1.0.1            </code></pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
