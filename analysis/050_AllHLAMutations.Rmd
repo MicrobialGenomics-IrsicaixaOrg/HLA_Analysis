@@ -153,8 +153,6 @@ variant_df %>%
   dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %>% 
   xlsx::write.xlsx(.,file=paste0(here::here(),"/output/HLAMutations.xls"),sheetName = "AllHLAMutations")
   
-
-
 ```
 ### Placebo vs Vaccine
 

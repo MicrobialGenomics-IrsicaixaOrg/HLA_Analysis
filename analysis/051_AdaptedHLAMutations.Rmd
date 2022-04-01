@@ -152,7 +152,7 @@ variant_df %>%
   group_by(SampleID) %>% 
   dplyr::summarise(total_within_HLA=sum(withinHLA)) %>% 
   left_join(metadata_df) %>% 
-  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_HLA_mutations=total_within_HLA) %>% 
+  dplyr::rename(TreatmentGroup=Treatment.Vax.vs.Pbo,n_adapted_HLA_mutations=total_within_HLA) %>% 
   xlsx::write.xlsx(.,file=paste0(here::here(),"/output/HLAMutations.xls"),sheetName = "AdaptedHLAMutations",append=T)
   
 
